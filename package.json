@@ -15,7 +15,8 @@
     "lint-fix": "next lint --fix && pnpm run prettier:fix",
     "prettier:fix": "prettier '**/*.{js,jsx,ts,tsx,json,md}' --write",
     "check-types": "tsc --noEmit --pretty",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "coverage": "vitest run --coverage "
   },
   "dependencies": {
@@ -63,6 +64,7 @@
     "react-hook-form": "^7.51.1",
     "react-resizable-panels": "^2.0.16",
     "recharts": "^2.12.3",
+    "server-only": "^0.0.1",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
