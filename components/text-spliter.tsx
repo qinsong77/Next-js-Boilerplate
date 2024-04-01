@@ -1,7 +1,7 @@
 'use client'
 import { startTransition, useState } from 'react'
 
-import { useCustomerInterval } from '@/lib/hooks/use-customer-interval'
+import { useCustomerInterval } from '@/hooks/react-client/use-customer-interval'
 
 const orgText = 'React & Next.js 14'
 export const TextSplitter = () => {
