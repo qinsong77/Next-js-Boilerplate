@@ -7,6 +7,7 @@ import { sleep } from '@/lib/utils'
 
 import { ClientComponent } from './_components/client-component'
 import { PromptActivity } from './_components/prompt-activity'
+import { RscComponent } from './_components/rsc-component'
 import { TableDemo } from './_components/table'
 import { CenterContentLoading, SideBarLoading } from './loading'
 
@@ -75,7 +76,9 @@ const Page = async () => {
         </Suspense>
       </section>
       <Separator />
-      <ClientComponent />
+      <ClientComponent rsc={<RscComponent id={2} />}>
+        <RscComponent id={3} />
+      </ClientComponent>
     </div>
   )
 }
