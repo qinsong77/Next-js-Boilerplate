@@ -1,2 +1,2 @@
-export * from './react-generic'
-export * from './react-server'
+export * from './generic'
+export * from './server'

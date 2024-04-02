@@ -1,6 +1,6 @@
 import 'server-only'
 
-import logger from '@/lib/logger'
+import { logger } from '@/lib/server'
 import { sleep } from '@/lib/utils'
 
 interface Category {

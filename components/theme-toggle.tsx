@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import logger from '@/lib/logger'
+import { logger } from '@/lib/client'
 
 export function ThemeToggle() {
   const { setTheme } = useTheme()

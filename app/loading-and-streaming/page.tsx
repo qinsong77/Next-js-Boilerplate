@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 
 import { ExternalLink } from '@/components/external-link'
 import { Separator } from '@/components/ui/separator'
-import logger from '@/lib/logger'
+import { logger } from '@/lib/server'
 import { sleep } from '@/lib/utils'
 
 import { ClientComponent } from './_components/client-component'
@@ -35,7 +35,7 @@ async function getUserInfo(): Promise<Res> {
   const res = await fetch('https://randomuser.me/api/', {
     cache: 'no-store',
   })
-  await sleep(2000)
+  await sleep(1000)
   logger.info(res, 'getUserInfo done')
 
   if (!res.ok) {

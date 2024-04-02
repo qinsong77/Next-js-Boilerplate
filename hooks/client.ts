@@ -1,2 +1,2 @@
-export * from './react-client'
-export * from './react-generic'
+export * from './client-hooks'
+export * from './generic'

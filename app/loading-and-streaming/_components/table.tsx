@@ -9,7 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import logger from '@/lib/logger'
+import { logger } from '@/lib/server'
 import { sleep } from '@/lib/utils'
 
 type Tag = {

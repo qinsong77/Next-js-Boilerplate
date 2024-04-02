@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { TextSplitter } from '@/components/text-spliter'
 import { Separator } from '@/components/ui/separator'
-import logger from '@/lib/logger'
+import { logger } from '@/lib/server'
 
 export default function Home() {
   logger.info('entering home')
