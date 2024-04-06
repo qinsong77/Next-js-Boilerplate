@@ -11,13 +11,13 @@ import {
 } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { CalendarDateRangePicker } from './components/date-range-picker'
-import { MainNav } from './components/main-nav'
-import { Overview } from './components/overview'
-import { RecentSales } from './components/recent-sales'
-import { Search } from './components/search'
-import TeamSwitcher from './components/team-switcher'
-import { UserNav } from './components/user-nav'
+import { CalendarDateRangePicker } from './_components/date-range-picker'
+import { MainNav } from './_components/main-nav'
+import { Overview } from './_components/overview'
+import { RecentSales } from './_components/recent-sales'
+import { Search } from './_components/search'
+import TeamSwitcher from './_components/team-switcher'
+import { UserNav } from './_components/user-nav'
 
 export const metadata: Metadata = {
   title: 'Dashboard',

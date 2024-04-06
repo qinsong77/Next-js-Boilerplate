@@ -1,5 +1,5 @@
-const useGenericHook = () => {
+const useSharedHook = () => {
   // throw new Error('Attempted to call useDetectOS from RSC')
 }
 
-export default useGenericHook
+export default useSharedHook

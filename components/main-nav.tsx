@@ -10,7 +10,7 @@ export function MainNav() {
   const pathname = usePathname()
 
   return (
-    <div className="mr-4 md:flex">
+    <div className="mr-4 flex">
       <Link
         href="/"
         className="mr-6 flex items-center"
@@ -34,7 +34,7 @@ export function MainNav() {
               : 'text-foreground/60',
           )}
         >
-          Loading and streaming
+          Loading<span className="hidden md:inline"> and streaming</span>
         </Link>
         <Link
           href="/dashboard"
@@ -46,6 +46,17 @@ export function MainNav() {
           )}
         >
           dashboard
+        </Link>
+        <Link
+          href="/demos"
+          className={cn(
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/demos')
+              ? 'text-foreground'
+              : 'text-foreground/60',
+          )}
+        >
+          demos
         </Link>
         <Link
           href="https://github.com/qinsong77"

@@ -28,15 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={cn(
-          'min-h-screen bg-background font-sans antialiased',
-          fontSans.variable,
-        )}
+        className={cn('bg-background font-sans antialiased', fontSans.variable)}
       >
-        <div className="relative flex min-h-screen flex-col bg-background">
+        <div className="relative mx-auto flex min-h-screen max-w-screen-lg flex-col px-4 2xl:max-w-screen-xl">
           <Providers>
             <SiteHeader />
-            <main className="container flex-1 pb-4 pt-6">{children}</main>
+            <main className="flex-1 py-2 md:py-4">{children}</main>
             <SiteFooter />
           </Providers>
         </div>

@@ -75,10 +75,6 @@
   }
 }
 
-.container {
-  @apply mx-auto max-w-screen-xl px-2 sm:px-4 lg:px-8;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;

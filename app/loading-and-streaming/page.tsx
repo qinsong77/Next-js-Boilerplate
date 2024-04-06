@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 
 import { ExternalLink } from '@/components/external-link'
 import { Separator } from '@/components/ui/separator'
-import { logger } from '@/lib/server'
+import { logger } from '@/lib/shared'
 import { sleep } from '@/lib/utils'
 
 import { ClientComponent } from './_components/client-component'

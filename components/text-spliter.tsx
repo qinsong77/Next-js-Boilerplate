@@ -21,21 +21,18 @@ export const TextSplitter = () => {
     })
   }, 100)
   return (
-    <div>
-      <h1 className="mb-4 text-2xl font-bold leading-normal md:text-4xl">
-        This is a Next.js Boilerplate
-        <br />
-        Base on <span>{orgText.slice(0, count)}</span>
-        {count > 0 && (
-          <span
-            style={{ verticalAlign: '0.25rem' }}
-            className="ml-1 text-2xl"
-            aria-hidden="true"
-          >
-            |
-          </span>
-        )}
-      </h1>
-    </div>
+    <h1 className="min-h-28 text-xl font-bold leading-relaxed sm:max-md:min-h-20 md:text-2xl xl:text-4xl">
+      This is a Next.js Boilerplate
+      <br className="sm:max-md:hidden" />
+      Base on <span>{orgText.slice(0, count)}</span>
+      {count > 0 && (
+        <span
+          className="ml-1"
+          aria-hidden="true"
+        >
+          |
+        </span>
+      )}
+    </h1>
   )
 }

@@ -1,7 +1,7 @@
 import { act, renderHook, waitFor } from '@testing-library/react'
 import { describe, expect, it, vi } from 'vitest'
 
-import { useCustomerInterval } from '@/hooks/client-hooks/use-customer-interval'
+import { useCustomerInterval } from '@/hooks/client/use-customer-interval'
 
 describe('[hooks] -useCustomerInterval', () => {
   it('should re', async () => {
