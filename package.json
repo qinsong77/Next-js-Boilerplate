@@ -8,7 +8,7 @@
     "dev": "next dev | pino-pretty",
     "dev:turbo": "next dev --turbo | pino-pretty",
     "build": "next build",
-    "preview": "next build && cp -r .next/static .next/standalone/.next/static && cp -r public .next/standalone/public && node .next/standalone/server.js",
+    "preview": "next build && cp -r dist/static dist/standalone/dist/static && cp -r public dist/standalone/public && node dist/standalone/server.js",
     "build-analyze": "cross-env ANALYZE=true pnpm run build",
     "start": "next start",
     "lint": "next lint",

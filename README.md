@@ -17,7 +17,10 @@ This is a [Next.js](https://nextjs.org/) project base on [`create-next-app`](htt
 - test:
   - [vitest](https://vitest.dev/)
   - [react testing library](https://testing-library.com/)
-- i18n(TBD) -[next-intl](https://github.com/amannn/next-intl) not compatible with turbo mode `Module not found: Can't resolve 'next-intl/config' ` -[next-international](https://github.com/QuiiBz/next-international) seems better, but not compatible with Not found page
+- i18n(TBD)
+  - [setting-tutorials](https://i18nexus.com/tutorials/nextjs/react-i18next)
+  - [next-intl](https://github.com/amannn/next-intl) not compatible with turbo mode `Module not found: Can't resolve 'next-intl/config' `
+  - [next-international](https://github.com/QuiiBz/next-international) seems better, but not compatible with Not found page
   - Maybe the best choice is official Example: [app-dir-i18n-routing](https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing)
 - Docker
 - Playwright: Write end-to-end tests like a pro or cypress -TBD
@@ -26,11 +29,13 @@ This is a [Next.js](https://nextjs.org/) project base on [`create-next-app`](htt
 
 - i18n
 - E2E test
+- how to update rsc in client?
 
 ## Refers:
 
 - [Next.js App Router Playground](https://github.com/vercel/app-playground)
-- [nodejs.org](https://github.com/nodejs/nodejs.org/tree/main)
+- [nodejs.org doc web repo](https://github.com/nodejs/nodejs.org/tree/main)
+- [Next.js Full Stack App Architecture Guide](https://arno.surfacew.com/posts/en/nextjs-architecture)
 
 ## Getting Started
 
