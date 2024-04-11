@@ -48,15 +48,15 @@ export function MainNav() {
           dashboard
         </Link>
         <Link
-          href="/demos"
+          href="/todo"
           className={cn(
             'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/demos')
+            pathname?.startsWith('/todo')
               ? 'text-foreground'
               : 'text-foreground/60',
           )}
         >
-          demos
+          todo demos
         </Link>
         <Link
           href="https://github.com/qinsong77"

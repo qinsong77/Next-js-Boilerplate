@@ -6,35 +6,47 @@ import { Separator } from '@/components/ui/separator'
 import { logger } from '@/lib/shared'
 
 export default function Home() {
-  logger.info('entering home')
+  logger.trace('entering home')
   return (
     <div className="space-y-4 md:space-y-8 lg:space-y-12">
-      <div className="grid min-h-72 w-full md:grid-cols-2">
-        <div className="relative min-h-72">
+      <div className="flex flex-row flex-wrap justify-center">
+        <div className="lg:px-18 relative min-h-80 w-full shrink self-center sm:w-9/12 md:w-1/2">
           <Image
             src="/hero.svg"
             alt="hero Logo"
-            className="dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-            fill={true}
+            className="h-auto w-full dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
             priority
+            fill={true}
           />
         </div>
-        <div className="flex flex-col justify-between py-6">
+        <div className="w-full shrink self-center text-center sm:w-9/12 md:w-1/2 md:text-left">
           <TextSplitter />
-          <div className="">
-            <h3 className="mb-4 text-xl font-bold">Check the demos: </h3>
-            <div className="flex flex-row space-x-10">
+          <div className="mt-6">
+            <h3 className="text-xl font-bold">Check the demos: </h3>
+            <div className="flex flex-row flex-wrap">
               <Link
-                className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                 href="/loading-and-streaming"
               >
                 Loading and streaming
               </Link>
               <Link
-                className="inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                 href="/dashboard"
               >
                 dashboard
+              </Link>
+              <Link
+                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                href="/todo"
+              >
+                Todo demo
+              </Link>
+              <Link
+                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                href="/demos"
+              >
+                demos
               </Link>
             </div>
           </div>

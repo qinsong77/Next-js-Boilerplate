@@ -1,8 +1,7 @@
 // https://github.com/vercel/next.js/discussions/47227
 import { Counter } from '@/components/counter'
-import { logger } from '@/lib/shared'
 
-import { DropDown } from './_components/dropdown'
+import { DropDown } from './dropdown'
 
 // This part is important!
 export const dynamic = 'force-dynamic'
@@ -26,7 +25,7 @@ export default async function Foo({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined }
 }) {
-  logger.trace(searchParams, 'searchParams')
+  console.log(searchParams)
   const selectedSearch = searchParams?.selected ?? ''
   const selected = Array.isArray(selectedSearch)
     ? selectedSearch[0]
@@ -35,6 +34,8 @@ export default async function Foo({
   console.log(selected)
   const pokemon = await fetchPokemon(selected)
 
+  console.log(pokemon)
+
   return (
     <>
       <Counter />
@@ -42,11 +43,11 @@ export default async function Foo({
       <DropDown selected={selected || ''} />
 
       {pokemon ? (
-        <section className="mt-4">
+        <section>
           {pokemon.name} - {pokemon.id}
         </section>
       ) : (
-        <p className="mt-2">Select a pokemon</p>
+        <p>Select a pokemon</p>
       )}
     </>
   )

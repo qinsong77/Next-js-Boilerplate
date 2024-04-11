@@ -21,9 +21,9 @@ export const TextSplitter = () => {
     })
   }, 100)
   return (
-    <h1 className="min-h-28 text-xl font-bold leading-relaxed sm:max-md:min-h-20 md:text-2xl xl:text-4xl">
+    <h1 className="min-h-28 text-xl font-bold leading-relaxed md:text-2xl xl:text-4xl">
       This is a Next.js Boilerplate
-      <br className="sm:max-md:hidden" />
+      <br />
       Base on <span>{orgText.slice(0, count)}</span>
       {count > 0 && (
         <span

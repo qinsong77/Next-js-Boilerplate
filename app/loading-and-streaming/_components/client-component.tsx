@@ -24,8 +24,9 @@ export const ClientComponent = ({
       })
     }
   }, [toast, val])
+
   return (
-    <div>
+    <div className="space-y-4">
       <div className="flex items-center space-x-4">
         <p>Counter: {val}</p>
         <Button

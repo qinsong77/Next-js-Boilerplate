@@ -9,6 +9,7 @@ This is a [Next.js](https://nextjs.org/) project base on [`create-next-app`](htt
   - husky
   - lint-stage
   - prettier
+    - use [prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports) ? current is `eslint-plugin-simple-import-sort`
   - commitlint
 - css: tailwindcss
 - UI Library: [shadcn/ui](https://ui.shadcn.com/)
@@ -29,6 +30,8 @@ This is a [Next.js](https://nextjs.org/) project base on [`create-next-app`](htt
 
 - i18n
 - E2E test
+- Zustand
+- after gpr, run pnpm install automatically
 - how to update rsc in client?
 
 ## Refers:

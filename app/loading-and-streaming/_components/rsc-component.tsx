@@ -3,54 +3,39 @@ import 'server-only'
 import { logger } from '@/lib/shared'
 import { sleep } from '@/lib/utils'
 
-interface Category {
+type RES = {
   id: number
   name: string
+  is_main_series: boolean
 }
 
-interface PhotoUrls {
-  [index: number]: string
-}
-
-interface Tag {
-  id: number
-  name: string
-}
-
-interface Pet {
-  id: number
-  name: string
-  category: Category
-  photoUrls: PhotoUrls
-  tags: Tag[]
-  status: 'available' | 'pending' | 'sold'
-}
-
-async function getPetById(id: number): Promise<Pet> {
-  logger.info({ id }, 'getPetById start')
-  const res = await fetch(`https://petstore3.swagger.io/api/v3/pet/${id}`, {
+async function getEggById(id: number): Promise<RES> {
+  logger.info({ id }, 'getEggById start')
+  const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${id}`, {
     cache: 'no-store',
   })
   await sleep(1500)
-  logger.info(res, 'getPetById done')
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to getPetById')
+    const e = new Error('Failed to getEggById')
     logger.error(e, 'getPetById')
     throw e
   }
 
-  return res.json()
+  return await res.json()
 }
 
 export const RscComponent = async ({ id }: { id: number }) => {
-  const pet = await getPetById(id)
+  const egg = await getEggById(id)
+  logger.info(egg, 'getEggById done')
+
   return (
-    <div>
-      <h3>Pet {id} info</h3>
-      <p>{pet.name}</p>
-      <p>{pet.status}</p>
+    <div className="space-x-4">
+      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        Egg group: {id} info
+      </h3>
+      <p className="leading-7">{egg.name}</p>
     </div>
   )
 }
