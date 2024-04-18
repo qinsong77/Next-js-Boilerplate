@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import * as path from 'path'
-import { defineConfig } from 'vitest/config'
+import { defaultExclude, defineConfig } from 'vitest/config'
 
 // todo msw: https://github.com/vitest-dev/vitest/blob/main/examples/react-testing-lib-msw/src/mocks/server.ts
 export default defineConfig({
@@ -20,6 +20,8 @@ export default defineConfig({
     coverage: {
       // todo check coverage
       include: ['**/*.test.ts'],
+      exclude: ['e2e'],
     },
+    exclude: [...defaultExclude, 'e2e'],
   },
 })

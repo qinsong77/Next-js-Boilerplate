@@ -24,7 +24,8 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
   - [next-international](https://github.com/QuiiBz/next-international) seems better, but not compatible with Not found page
   - Maybe the best choice is official Example: [app-dir-i18n-routing](https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing)
 - Docker
-- Playwright: Write end-to-end tests like a pro or cypress -TBD
+- Playwright: Write end-to-end tests like a pro or cypress
+- Github actions/CI
 
 ## TODO
 

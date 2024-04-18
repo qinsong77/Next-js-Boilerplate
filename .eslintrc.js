@@ -23,6 +23,10 @@ module.exports = {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       extends: ['plugin:vitest/recommended', 'plugin:testing-library/react'],
     },
+    {
+      files: ['e2e/**/*.spec.ts'],
+      extends: ['plugin:playwright/recommended'],
+    },
   ],
   ignorePatterns: ['node_modules/', '.next/', 'public/', 'components/ui'],
 }
