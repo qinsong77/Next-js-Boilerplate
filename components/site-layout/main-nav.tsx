@@ -13,7 +13,7 @@ export function MainNav() {
   return (
     <div className="mr-4 flex">
       <Link
-        href="/public"
+        href="/"
         className="mr-6 flex items-center"
       >
         <Image
