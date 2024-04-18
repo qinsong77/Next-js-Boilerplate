@@ -34,6 +34,10 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - after gpr, run pnpm install automatically
 - how to update rsc in client?
 
+## Know issues
+
+- `eslint-plugin-vitest` can not updated otherwise eslint will be broken.
+
 ## Refers:
 
 - [Next.js App Router Playground](https://github.com/vercel/app-playground)
