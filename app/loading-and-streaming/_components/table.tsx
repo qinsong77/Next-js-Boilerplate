@@ -43,8 +43,8 @@ export async function TableDemo() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">Index</TableHead>
-            <TableHead>Name</TableHead>
-            <TableHead>url</TableHead>
+            <TableHead className="w-auto">Name</TableHead>
+            <TableHead className="w-auto">url</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

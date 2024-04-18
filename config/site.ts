@@ -6,5 +6,6 @@ export const siteConfig = {
     twitter: 'https://twitter.com/shadcn',
     blog: 'https://www.sysuke.com/',
     github: 'https://github.com/qinsong77',
+    repoGithub: 'https://github.com/qinsong77/Next-js-Boilerplate',
   },
 } as const

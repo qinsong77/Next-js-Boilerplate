@@ -1,11 +1,12 @@
 import { GithubIcon, RssIcon } from 'lucide-react'
 import Link from 'next/link'
 
-import { MainNav } from '@/components/main-nav'
-import { ThemeToggle } from '@/components/theme-toggle'
 import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+
+import { MainNav } from './main-nav'
+import { ThemeToggle } from './theme-toggle'
 
 export function SiteHeader() {
   return (

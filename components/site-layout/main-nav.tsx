@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 
 export function MainNav() {
@@ -12,7 +13,7 @@ export function MainNav() {
   return (
     <div className="mr-4 flex">
       <Link
-        href="/"
+        href="/public"
         className="mr-6 flex items-center"
       >
         <Image
@@ -59,7 +60,7 @@ export function MainNav() {
           todo demos
         </Link>
         <Link
-          href="https://github.com/qinsong77"
+          href={siteConfig.links.repoGithub}
           className={cn(
             'hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block',
           )}

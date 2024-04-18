@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <div className="flex flex-col space-y-8">
       <TopLoading />
-      <div className="flex space-x-2">
+      <div className="flex flex-col space-y-2 md:flex-row md:space-x-2">
         <SideBarLoading />
         <CenterContentLoading />
       </div>
@@ -26,7 +26,7 @@ export const TopLoading = () => {
 
 export const SideBarLoading = () => {
   return (
-    <div className="flex w-4/12 flex-col space-y-3">
+    <div className="flex flex-col space-y-3 md:w-4/12">
       <Skeleton className="h-16 w-auto" />
       <Skeleton className="h-16 w-4/6" />
       <Skeleton className="h-16 w-5/6" />
@@ -37,7 +37,7 @@ export const SideBarLoading = () => {
 
 export const CenterContentLoading = () => {
   return (
-    <div className="flex w-8/12 flex-col space-y-3">
+    <div className="flex flex-col space-y-3 md:w-8/12">
       {new Array(3).fill(0).map((_, index) => (
         <div
           key={index}

@@ -1,8 +1,8 @@
 # Next.js 14 Boilerplate
 
-This is a [Next.js](https://nextjs.org/) project base on [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Feature
+## Features
 
 - pnpm
 - chore

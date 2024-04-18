@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { ExternalLink } from '@/components/external-link'
+import { ExternalLink } from '@/components/site-layout/external-link'
 import { Separator } from '@/components/ui/separator'
 import { logger } from '@/lib/shared'
 import { sleep } from '@/lib/utils'
@@ -63,14 +63,14 @@ const Page = async () => {
         <p>phone: {data.phone}</p>
         <p>gender: {data.gender}</p>
       </div>
-      <section className="flex space-x-2">
+      <section className="flex flex-col space-y-2 md:flex-row md:space-x-2">
         <Suspense fallback={<SideBarLoading />}>
-          <div className="flex w-4/12 flex-col space-y-3">
+          <div className="flex flex-col space-y-3 md:w-4/12">
             <PromptActivity />
           </div>
         </Suspense>
         <Suspense fallback={<CenterContentLoading />}>
-          <div className="flex w-8/12 flex-col space-y-3">
+          <div className="flex flex-col space-y-3 md:w-8/12">
             <TableDemo />
           </div>
         </Suspense>

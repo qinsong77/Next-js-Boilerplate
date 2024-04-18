@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -11,7 +10,6 @@ import {
 } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
-import { CalendarDateRangePicker } from './_components/date-range-picker'
 import { MainNav } from './_components/main-nav'
 import { Overview } from './_components/overview'
 import { RecentSales } from './_components/recent-sales'
@@ -27,7 +25,7 @@ export const metadata: Metadata = {
 export default function DashboardPage() {
   return (
     <>
-      <div className="hidden flex-col md:flex">
+      <div className="flex flex-col">
         <div className="border-b">
           <div className="flex h-16 items-center px-4">
             <TeamSwitcher />
@@ -42,7 +40,6 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between space-y-2">
             <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
             <div className="flex items-center space-x-2">
-              <CalendarDateRangePicker />
               <Button>Download</Button>
             </div>
           </div>

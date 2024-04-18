@@ -4,8 +4,7 @@ import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
 import { Providers } from '@/components/providers'
-import { SiteFooter } from '@/components/site-footer'
-import { SiteHeader } from '@/components/site-header'
+import { SiteFooter, SiteHeader } from '@/components/site-layout'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
 

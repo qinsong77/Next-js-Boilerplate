@@ -1,5 +1,7 @@
-import { ExternalLink } from '@/components/external-link'
+import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+
+import { ExternalLink } from './external-link'
 
 export function SiteFooter({
   className,
@@ -11,7 +13,7 @@ export function SiteFooter({
         Basically built by{' '}
         <ExternalLink href="https://nextjs.org">Next.js</ExternalLink>. The
         source code is available on{' '}
-        <ExternalLink href="https://github.com/qinsong77">GitHub</ExternalLink>.
+        <ExternalLink href={siteConfig.links.repoGithub}>GitHub</ExternalLink>.
       </p>
     </footer>
   )
