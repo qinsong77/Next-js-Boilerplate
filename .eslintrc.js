@@ -1,6 +1,10 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  plugins: ['simple-import-sort'],
+  plugins: [
+    'simple-import-sort',
+    // https://react.dev/learn/react-compiler#installing-eslint-plugin-react-compiler
+    'eslint-plugin-react-compiler',
+  ],
   extends: [
     'next/core-web-vitals',
     'plugin:tailwindcss/recommended',
@@ -11,6 +15,8 @@ module.exports = {
     'simple-import-sort/exports': 'error',
     'tailwindcss/no-custom-classname': 'off',
     'tailwindcss/classnames-order': 'off',
+
+    'react-compiler/react-compiler': 'error',
   },
   settings: {
     tailwindcss: {
@@ -22,7 +28,11 @@ module.exports = {
     {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       excludedFiles: ['e2e/**'],
-      extends: ['plugin:vitest/recommended', 'plugin:testing-library/react'],
+      extends: [
+        'plugin:vitest/recommended',
+        'plugin:jest-dom/recommended',
+        'plugin:testing-library/react',
+      ],
     },
     {
       files: ['e2e/**/*.spec.ts'],
