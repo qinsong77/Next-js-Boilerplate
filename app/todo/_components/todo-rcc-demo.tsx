@@ -7,6 +7,7 @@ import { AddTodo } from './add-todo'
 import Todo from './todo'
 
 async function getTodos(): Promise<TODO[]> {
+  // todo fix deployed not working
   const res = await fetch('http://localhost:3000/api/todo', {
     cache: 'no-store',
   })

@@ -21,6 +21,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.test.ts', '**/*.test.tsx'],
+      excludedFiles: ['e2e/**'],
       extends: ['plugin:vitest/recommended', 'plugin:testing-library/react'],
     },
     {
