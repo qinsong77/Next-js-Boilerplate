@@ -14,7 +14,7 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - css: tailwindcss
 - UI Library: [shadcn/ui](https://ui.shadcn.com/)
 - bundle-analyzer: [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
-- logger: [pino](https://github.com/pinojs/pino) && development pretty logging[pino-pretty](https://github.com/pinojs/pino-pretty)
+- logger: [pino](https://github.com/pinojs/pino) && development pretty logging [pino-pretty](https://github.com/pinojs/pino-pretty)
 - test:
   - [vitest](https://vitest.dev/)
   - [react testing library](https://testing-library.com/)
@@ -30,14 +30,15 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 ## TODO
 
 - i18n
-- E2E test
+- ~~E2E test~~
 - Zustand
 - after gpr, run pnpm install automatically
 - how to update rsc in client?
+- Update to Next.js 15
 
 ## Know issues
 
-- `eslint-plugin-vitest` can not updated otherwise eslint will be broken.
+- `eslint-plugin-vitest` can't updated, otherwise eslint will be broken.
 
 ## Refers:
 
