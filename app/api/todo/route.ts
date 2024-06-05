@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 // import cors from '@/lib/cros'
-import type { TODO } from './todo'
+import type { TODO } from './type'
 
 // temporary way, will share it in all request
 const todos: TODO[] = [

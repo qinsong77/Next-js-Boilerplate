@@ -1,6 +1,6 @@
 import 'server-only'
 
-import type { TODO } from '../../api/todo/todo'
+import type { TODO } from '../../api/todo/type'
 
 export const todos: TODO[] = [
   {

@@ -1,26 +1,26 @@
 import { logger } from '@/lib/shared'
 import { sleep } from '@/lib/utils'
 
-interface Activity {
-  activity: string
-  type: string
-  participants: number
-  price: number
-  link: string
-  key: string
-  accessibility: number
+interface Joke {
+  categories: []
+  created_at: string
+  icon_url: string
+  id: string
+  updated_at: string
+  url: string
+  value: string
 }
-async function getActivity(): Promise<Activity> {
-  logger.info('getActivity start')
-  const res = await fetch('https://www.boredapi.com/api/activity', {
+async function getRandomJoke(): Promise<Joke> {
+  logger.info('getRandomJoke start')
+  const res = await fetch('https://api.chucknorris.io/jokes/random', {
     cache: 'no-store',
   })
   await sleep(1500)
-  logger.info(res, 'getActivity done')
+  logger.info(res, 'getRandomJoke done')
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to getActivity')
+    const e = new Error('Failed to getRandomJoke')
     logger.error(e)
     throw e
   }
@@ -28,14 +28,13 @@ async function getActivity(): Promise<Activity> {
   return res.json()
 }
 export const PromptActivity = async () => {
-  const data = await getActivity()
+  const data = await getRandomJoke()
   return (
     <div>
-      <h2>Activity: </h2>
-      <h4>desc: {data.activity}</h4>
-      <p>price: {data.price}</p>
-      <p>participants {data.participants}</p>
-      <p>accessibility {data.accessibility}</p>
+      <h2>Random Joke: </h2>
+      <h4>url: {data.url}</h4>
+      <p>updated_at: {data.updated_at}</p>
+      <p>{data.value}</p>
     </div>
   )
 }

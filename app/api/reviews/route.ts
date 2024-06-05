@@ -2,7 +2,7 @@
 
 import { logger } from '@/lib/shared'
 
-import type { Review } from './review'
+import type { Review } from './type'
 
 export async function GET(request: Request) {
   logger.trace(

@@ -2,7 +2,7 @@
 
 import { logger } from '@/lib/shared'
 
-import type { TODO } from '../../api/todo/todo'
+import type { TODO } from '../../api/todo/type'
 import { AddTodo } from './add-todo'
 import Todo from './todo'
 
