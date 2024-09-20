@@ -38,7 +38,7 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 
 ## Know issues
 
-- `eslint-plugin-vitest` can't updated, otherwise eslint will be broken.
+- [x] `eslint-plugin-vitest` can't updated, otherwise eslint will be broken. => `'plugin:prettier/recommended',`
 
 ## Refers:
 
