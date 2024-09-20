@@ -49,6 +49,18 @@ export function MainNav() {
           dashboard
         </Link>
         <Link
+          href="/line-chart"
+          className={cn(
+            'hidden transition-colors hover:text-foreground/80 md:inline',
+            pathname?.startsWith('/line-chart')
+              ? 'text-foreground'
+              : 'text-foreground/60',
+          )}
+        >
+          line chart
+        </Link>
+
+        <Link
           href="/todo"
           className={cn(
             'transition-colors hover:text-foreground/80',
@@ -59,6 +71,7 @@ export function MainNav() {
         >
           todo demos
         </Link>
+
         <Link
           href={siteConfig.links.repoGithub}
           className={cn(
