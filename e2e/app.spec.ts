@@ -17,7 +17,13 @@ test('app journey', async ({ page }) => {
   await expect(footerText).toBeVisible()
 
   const navLinks = page.locator('nav a')
-  const expectedLinksText = ['Loading', 'dashboard', 'todo demos', 'GitHub']
+  const expectedLinksText = [
+    'Loading',
+    'dashboard',
+    'line chart',
+    'todo demos',
+    'GitHub',
+  ]
 
   for (let i = 0; i < expectedLinksText.length; i++) {
     const linkText = await navLinks.nth(i).textContent()
@@ -31,7 +37,7 @@ test('app journey', async ({ page }) => {
     page.getByRole('heading', { name: 'Show loading UI and streaming' }),
   ).toBeVisible()
 
-  await navLinks.nth(2).click()
+  await navLinks.nth(3).click()
   await expect(page).toHaveURL('/todo')
   await expect(
     page.getByRole('heading', { name: 'Todo demo with RCC' }),

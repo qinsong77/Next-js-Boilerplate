@@ -31,7 +31,7 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 
 - i18n
 - ~~E2E test~~
-- Zustand
+- Zustand, too simplify, maybe RTK if needed
 - after gpr, run pnpm install automatically
 - how to update rsc in client?
 - Update to Next.js 15

@@ -1,5 +1,7 @@
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 import { defineConfig, devices } from '@playwright/test'
-import path from 'path'
 
 /**
  * Read environment variables from file.
@@ -13,6 +15,8 @@ const PORT = process.env.PORT || 3000
 // Set webServer.url and use.baseURL with the location of the WebServer respecting the correct set port
 const baseURL = `http://localhost:${PORT}`
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -20,7 +24,7 @@ export default defineConfig({
   // Timeout per test
   timeout: 30 * 1000,
   // Test directory
-  testDir: path.join(__dirname, 'e2e'),
+  testDir: join(__dirname, 'e2e'),
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -38,7 +42,7 @@ export default defineConfig({
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: process.env.CI ? 'pnpm run start' : 'pnpm run dev:turbo',
+    command: process.env.CI ? 'pnpm run preview' : 'pnpm run dev:turbo',
     url: baseURL,
     timeout: 2 * 60 * 1000,
     reuseExistingServer: !process.env.CI,
