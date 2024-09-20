@@ -6,7 +6,9 @@ module.exports = {
     // 'eslint-plugin-react-compiler',
   ],
   extends: [
-    'next/core-web-vitals',
+    // 'next/core-web-vitals',
+    'next',
+    'next/typescript',
     'plugin:tailwindcss/recommended',
     'plugin:prettier/recommended',
   ],
@@ -29,7 +31,7 @@ module.exports = {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       excludedFiles: ['e2e/**'],
       extends: [
-        'plugin:vitest/recommended',
+        'plugin:vitest/legacy-recommended',
         'plugin:jest-dom/recommended',
         'plugin:testing-library/react',
       ],
