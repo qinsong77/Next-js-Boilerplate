@@ -3,7 +3,7 @@ module.exports = {
   plugins: [
     'simple-import-sort',
     // https://react.dev/learn/react-compiler#installing-eslint-plugin-react-compiler
-    'eslint-plugin-react-compiler',
+    // 'eslint-plugin-react-compiler',
   ],
   extends: [
     'next/core-web-vitals',
@@ -16,7 +16,7 @@ module.exports = {
     'tailwindcss/no-custom-classname': 'off',
     'tailwindcss/classnames-order': 'off',
 
-    'react-compiler/react-compiler': 'error',
+    // 'react-compiler/react-compiler': 'error',
   },
   settings: {
     tailwindcss: {
