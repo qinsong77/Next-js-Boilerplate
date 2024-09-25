@@ -61,6 +61,18 @@ export function MainNav() {
         </Link>
 
         <Link
+          href="/pagination-demo"
+          className={cn(
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/pagination-demo')
+              ? 'text-foreground'
+              : 'text-foreground/60',
+          )}
+        >
+          pagination demo
+        </Link>
+
+        <Link
           href="/todo"
           className={cn(
             'transition-colors hover:text-foreground/80',

@@ -35,7 +35,7 @@ export function ThemeToggle() {
             logger.info('theme changed to light')
           }}
         >
-          <Sun className="mr-2 size-4 transition-all " />
+          <Sun className="mr-2 size-4 transition-all" />
           Light
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>
