@@ -1,106 +1,120 @@
 'use client'
-// todo => use server?
+
+import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { Button } from '@/components/ui/button'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import { siteConfig } from '@/config/site'
 import { cn } from '@/lib/utils'
+
+const navItems = [
+  {
+    href: '/loading-and-streaming',
+    label: 'Loading and streaming',
+    shortLabel: 'streaming ui',
+  },
+  { href: '/dashboard', label: 'dashboard' },
+  { href: '/line-chart', label: 'line chart' },
+  {
+    href: '/pagination-demo',
+    label: 'table pagination',
+    shortLabel: 'pagination',
+  },
+  { href: '/todo', label: 'Todo demo' },
+  {
+    href: '/task-sequence-progress',
+    label: 'Task Sequence Progress demo',
+    shortLabel: 'Sequence Progress',
+  },
+  { href: siteConfig.links.repoGithub, label: 'GitHub', external: true },
+]
 
 export function MainNav() {
   const pathname = usePathname()
 
   return (
-    <div className="mr-4 flex">
+    <div className="flex w-full items-center">
       <Link
         href="/"
-        className="mr-6 flex items-center"
+        className="mr-3 flex items-center"
       >
         <Image
           src="/next.svg"
           alt="Next.js Logo"
-          className="inline-block h-6 w-16 dark:invert"
+          className="h-6 w-16 dark:invert"
           width={100}
           height={24}
         />
-        <span className="ml-1 inline-block font-bold">14 Boilerplate</span>
+        <span className="ml-2 text-sm font-bold sm:text-base">
+          14 Boilerplate
+        </span>
       </Link>
-      <nav className="hidden items-center gap-4 text-sm sm:flex lg:gap-6">
-        <Link
-          href="/loading-and-streaming"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname === '/loading-and-streaming'
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          Loading<span className="hidden md:inline"> and streaming</span>
-        </Link>
-        <Link
-          href="/dashboard"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/dashboard')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          dashboard
-        </Link>
-        <Link
-          href="/line-chart"
-          className={cn(
-            'hidden transition-colors hover:text-foreground/80 md:inline',
-            pathname?.startsWith('/line-chart')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          line chart
-        </Link>
-        <Link
-          href="/pagination-demo"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/pagination-demo')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          pagination demo
-        </Link>
-        <Link
-          href="/todo"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/todo')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          todo demos
-        </Link>{' '}
-        <Link
-          href="/task-sequence-progress"
-          className={cn(
-            'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/task-sequence-progress')
-              ? 'text-foreground'
-              : 'text-foreground/60',
-          )}
-        >
-          Task Sequence Progress demo
-        </Link>
-        <Link
-          href={siteConfig.links.repoGithub}
-          className={cn(
-            'hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block',
-          )}
-        >
-          GitHub
-        </Link>
+
+      <nav className="hidden items-center space-x-1 sm:flex md:space-x-2 lg:space-x-4">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              'text-xs transition-colors hover:text-foreground/80 sm:text-sm',
+              pathname?.startsWith(item.href)
+                ? 'text-foreground'
+                : 'text-foreground/60',
+            )}
+            {...(item.external
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
+          >
+            {item.shortLabel || item.label}
+          </Link>
+        ))}
       </nav>
+
+      <DropdownMenu modal={false}>
+        <DropdownMenuTrigger
+          asChild
+          className="sm:hidden"
+        >
+          <Button
+            variant="outline"
+            size="icon"
+          >
+            <Menu className="size-[1.2rem]" />
+            <span className="sr-only">打开菜单</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          {navItems.map((item) => (
+            <DropdownMenuItem
+              key={item.href}
+              asChild
+            >
+              <Link
+                href={item.href}
+                className={cn(
+                  'w-full',
+                  pathname?.startsWith(item.href)
+                    ? 'text-foreground'
+                    : 'text-foreground/60',
+                )}
+                {...(item.external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                {item.shortLabel || item.label}
+              </Link>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   )
 }
