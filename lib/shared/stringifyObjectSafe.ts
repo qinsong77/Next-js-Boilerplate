@@ -1,4 +1,7 @@
-export const stringifyObjectSafe = (obj: Object | any, ...args: any[]) => {
+export const stringifyObjectSafe = (
+  obj: object | unknown,
+  ...args: never[]
+) => {
   if (typeof obj === 'string') return obj
   try {
     return JSON.stringify(obj, ...args)

@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises'
 
 import { logger } from '@/lib/shared'
 
-export const SeverComponentOne = async (props: any) => {
+export const SeverComponentOne = async (props: { value: string }) => {
   logger.info(props, 'SeverComponentOne props')
   const tsconfig = await readFile('tsconfig.json', 'utf8')
 

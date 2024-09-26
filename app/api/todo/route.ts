@@ -16,7 +16,7 @@ const todos: TODO[] = [
     completed: true,
   },
 ]
-export async function GET(request: Request) {
+export async function GET() {
   return NextResponse.json(todos)
 }
 
@@ -31,7 +31,7 @@ export async function PUT(request: Request) {
   return NextResponse.json(todos)
 }
 
-export async function POST(request: Request, req: any) {
+export async function POST(request: Request) {
   if (todos.length > 10) {
     throw new Error('exceed limit')
   }

@@ -6,7 +6,7 @@ import { stringifyObjectSafe } from '@/lib/shared'
 function processResponse(res: {
   success: boolean
   message?: boolean
-  content: any
+  content: unknown
 }) {
   if (res.success) {
     return res.content
@@ -27,7 +27,7 @@ async function processErrorContent(res: Response) {
  * @description work with server-side success / fail response error-code and etc.
  */
 export const api = {
-  async get<Response = any>(
+  async get<Response = unknown>(
     requestUrl: string,
     searchParams?: URLSearchParams,
     options?: RequestInit,
@@ -43,7 +43,7 @@ export const api = {
     return processResponse(r) as Response
   },
 
-  async post<P = any, R = any>(
+  async post<P = unknown, R = unknown>(
     requestUrl: string,
     body: P,
     options?: RequestInit,
@@ -60,7 +60,7 @@ export const api = {
     return processResponse(r) as R
   },
 
-  async patch<P = any, R = any>(
+  async patch<P = unknown, R = unknown>(
     requestUrl: string,
     body: P,
     options?: RequestInit,
@@ -77,7 +77,7 @@ export const api = {
     return processResponse(r) as R
   },
 
-  async postStream<P = any, R = any>(
+  async postStream<P = unknown>(
     requestUrl: string,
     body: P,
     options?: RequestInit,
@@ -119,6 +119,7 @@ export const api = {
    * - requestUrl
    * - searchStr request searchParams e.g. `id=1&ame=2`
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async delete<P, R>(
     requestUrl: string,
     searchStr?: string,

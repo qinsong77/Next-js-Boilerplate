@@ -4,7 +4,13 @@ import React from 'react'
 
 import { Button } from '@/components/ui/button'
 
-export default function Error({ error, reset }: any) {
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error
+  reset: () => void
+}) {
   React.useEffect(() => {
     console.log('logging error:', error)
   }, [error])

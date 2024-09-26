@@ -15,7 +15,7 @@ export default function Todo(todo: TODO) {
   // Create inline loading UI
   const isMutating = isFetching || isPending
 
-  async function handleChange(v: boolean) {
+  async function handleChange() {
     setIsFetching(true)
     // Mutate external data source
     await fetch(`/api/todo`, {

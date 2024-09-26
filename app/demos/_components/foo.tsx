@@ -15,7 +15,7 @@ const fetchPokemon = async (poke: string) => {
     if (!response.ok) return null
 
     return await response.json()
-  } catch (reason) {
+  } catch {
     return null
   }
 }

@@ -12,7 +12,8 @@ export const AddTodoRsc = () => {
     logger.trace({ formData }, 'createTodo action with formData:')
     const title = formData.get('name') as string
     logger.info({ title }, 'createTodo title')
-    const todos = addTodo({ title, completed: false })
+    const todo = addTodo({ title, completed: false })
+    console.log(todo)
     revalidatePath('/todo')
   }
   return (
