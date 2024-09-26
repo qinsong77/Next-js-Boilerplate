@@ -3,22 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.8.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "dev": "next dev | pino-pretty",
     "dev:turbo": "next dev --turbo | pino-pretty",
     "build": "next build",
+    "preview": "next build && cp -r dist/static dist/standalone/dist/static && cp -r public dist/standalone/public && node dist/standalone/server.js",
     "build-analyze": "cross-env ANALYZE=true pnpm run build",
     "check-types": "tsc --noEmit --pretty",
     "lint": "next lint",
     "lint-and-format-fix": "next lint --fix && pnpm run prettier:fix",
+    "format": "prettier . --check",
     "format:fix": "prettier '**/*.{js,jsx,ts,tsx,json,md}' --write",
-    "preview": "next build && cp -r dist/static dist/standalone/dist/static && cp -r public dist/standalone/public && node dist/standalone/server.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "turbo:check": "turbo lint format type-check test",
+    "turbo:test": "turbo test",
+    "turbo:build": "turbo build",
+    "turbo:preview": "turbo preview",
+    "turbo:e2e": "turbo test:e2e"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
@@ -87,7 +94,8 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.12",
-    "typescript": "5.6.2",
+    "turbo": "^2.1.2",
+    "typescript": "5.3.3",
     "vitest": "^2.1.1"
   },
   "engines": {

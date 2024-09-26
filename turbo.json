@@ -1,0 +1,25 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "tasks": {
+    "type-check": {
+      "inputs": ["**/*.{ts,tsx}"]
+    },
+    "build": {
+      "dependsOn": ["type-check", "lint", "format", "test"],
+      "outputs": ["dist/**"],
+      "env": []
+    },
+    "lint": {},
+    "test": {},
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "preview": {
+      "dependsOn": ["build"]
+    },
+    "e2e": {
+      "outputs": ["playwright-report/**"]
+    }
+  }
+}

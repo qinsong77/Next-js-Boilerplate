@@ -26,6 +26,7 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - Docker
 - Playwright: Write end-to-end tests like a pro or cypress
 - Github actions/CI
+- Turbo for task cache
 
 ## Demos
 
