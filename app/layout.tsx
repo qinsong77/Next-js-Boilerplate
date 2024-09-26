@@ -16,7 +16,14 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ['Next.js', 'React', 'Boilerplate', 'Tailwind CSS', 'shadcn.ui'],
+  keywords: [
+    'Next.js',
+    'React',
+    'Boilerplate',
+    'Tailwind CSS',
+    'shadcn.ui',
+    'Template',
+  ],
 }
 
 export default function RootLayout({
@@ -25,7 +32,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning={true}
+    >
       <body
         className={cn('bg-background font-sans antialiased', fontSans.variable)}
       >
