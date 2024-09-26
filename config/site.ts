@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Next.js 14 Boilerplate',
   url: 'https://www.sysuke.com',
-  description: 'Base Next.js 14 Boilerplate',
+  description: 'Base Next.js 14 Boilerplate/Template',
   links: {
     twitter: 'https://twitter.com/shadcn',
     blog: 'https://www.sysuke.com/',

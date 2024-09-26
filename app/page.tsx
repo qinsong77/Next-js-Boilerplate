@@ -54,7 +54,7 @@ export default function Home() {
       </div>
       <Separator />
       <div className="grid grid-cols-1 justify-between gap-10 md:grid-cols-2">
-        <p className="flex max-w-96 justify-center border-b border-gray-300 bg-gray-200 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static  md:w-auto md:rounded-xl md:p-4 md:dark:bg-zinc-800/30 lg:border">
+        <p className="flex max-w-96 justify-center border-b border-gray-300 bg-gray-200 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static md:w-auto md:rounded-xl md:p-4 md:dark:bg-zinc-800/30 lg:border">
           Get started by editing&nbsp;
           <code className="font-mono font-bold">app/page.tsx</code>
         </p>

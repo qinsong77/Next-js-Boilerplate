@@ -27,6 +27,11 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - Playwright: Write end-to-end tests like a pro or cypress
 - Github actions/CI
 
+## Demos
+
+- [loading and streaming UI](./app/loading-and-streaming)
+- [table pagination](./app/pagination-demo) RSC + RCC, RCC will update the data
+
 ## TODO
 
 - i18n
@@ -35,16 +40,23 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - after gpr, run pnpm install automatically
 - how to update rsc in client?
 - Update to Next.js 15
+- How to test, the test strategy/architecture with RSC
+- in [table pagination demo](./app/pagination-demo/page.tsx), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
 
 ## Know issues
 
 - [x] `eslint-plugin-vitest` can't updated, otherwise eslint will be broken. => `'plugin:prettier/recommended',`
+- Standalone building output can't run if copy it's folder, cause pnpm `symlink`, node_module cant resolve correctly. It can be avoided by installing the package with `node-linker=hoisted` in the pnpm configuration before standalone output.
 
 ## Refers:
 
 - [Next.js App Router Playground](https://github.com/vercel/app-playground)
 - [nodejs.org doc web repo](https://github.com/nodejs/nodejs.org/tree/main)
 - [Next.js Full Stack App Architecture Guide](https://arno.surfacew.com/posts/en/nextjs-architecture)
+
+### Good article
+
+- [How to fetch data in React [2024]](https://www.robinwieruch.de/react-fetching-data/)
 
 ## Getting Started
 

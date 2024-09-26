@@ -9,3 +9,6 @@ pnpm-lock.yaml
 
 components/ui
 *.tsbuildinfo
+
+# Ignore all HTML files:
+**/*.html

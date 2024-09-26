@@ -1,3 +1,4 @@
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
 'use client'
 import {
   ColumnFiltersState,
@@ -15,6 +16,7 @@ import {
 } from '@tanstack/react-table'
 import React, { use, useState } from 'react'
 
+// todo how to show pagination component when start pagination on client
 import { columns } from '@/app/pagination-demo/_components/columns'
 import { getTaskList } from '@/app/pagination-demo/actions'
 import {
@@ -34,6 +36,7 @@ type TableDemoProps = {
 }
 
 export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
+  // todo make it as react context, update the promise in toolbar, eg: when inputting, re-fetch from server with useDeferredValue value?
   const [getUserListPromise, setGetUserListPromise] = useState(
     initGetTaskListPromise,
   )
@@ -43,6 +46,7 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
     pageSize: 10,
   })
 
+  // or we can use React query, get the init data from RSC as props, and pass it the  React query as initialData
   const resp = use(getUserListPromise)
   console.log(resp)
   const total = resp.total
