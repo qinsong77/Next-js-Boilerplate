@@ -6,10 +6,10 @@ import { logger } from '@/lib/shared'
 import { sleep } from '@/lib/utils'
 
 import { ClientComponent } from './_components/client-component'
+import { EggGroup } from './_components/egg-groups'
 import { PromptActivity } from './_components/prompt-activity'
 import { RscComponent } from './_components/rsc-component'
-import { TableDemo } from './_components/table'
-import { CenterContentLoading, SideBarLoading } from './loading'
+import { SideBarLoading } from './loading'
 
 type Res = {
   results: {
@@ -69,11 +69,9 @@ const Page = async () => {
             <PromptActivity />
           </div>
         </Suspense>
-        <Suspense fallback={<CenterContentLoading />}>
-          <div className="flex flex-col space-y-3 md:w-8/12">
-            <TableDemo />
-          </div>
-        </Suspense>
+        <div className="flex flex-col space-y-3 md:w-8/12">
+          <EggGroup />
+        </div>
       </section>
       <Separator />
       <ClientComponent rsc={<RscComponent id={2} />}>

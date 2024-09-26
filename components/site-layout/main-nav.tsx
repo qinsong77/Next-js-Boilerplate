@@ -59,7 +59,6 @@ export function MainNav() {
         >
           line chart
         </Link>
-
         <Link
           href="/pagination-demo"
           className={cn(
@@ -71,7 +70,6 @@ export function MainNav() {
         >
           pagination demo
         </Link>
-
         <Link
           href="/todo"
           className={cn(
@@ -82,8 +80,18 @@ export function MainNav() {
           )}
         >
           todo demos
+        </Link>{' '}
+        <Link
+          href="/task-sequence-progress"
+          className={cn(
+            'transition-colors hover:text-foreground/80',
+            pathname?.startsWith('/task-sequence-progress')
+              ? 'text-foreground'
+              : 'text-foreground/60',
+          )}
+        >
+          Task Sequence Progress demo
         </Link>
-
         <Link
           href={siteConfig.links.repoGithub}
           className={cn(
