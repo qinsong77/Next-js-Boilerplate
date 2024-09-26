@@ -17,30 +17,41 @@ test('app journey', async ({ page }) => {
   await expect(footerText).toBeVisible()
 
   const navLinks = page.locator('nav a')
-  const expectedLinksText = [
-    'Loading',
-    'dashboard',
-    'line chart',
-    'todo demos',
-    'GitHub',
-  ]
+  const expectedLinks = [
+    { text: 'streaming ui', url: '/loading-and-streaming' },
+    { text: 'dashboard', url: '/dashboard' },
+    { text: 'line chart', url: '/line-chart' },
+    { text: 'pagination', url: '/pagination-demo' },
+    { text: 'Todo demo', url: '/todo' },
+    { text: 'Sequence Progress', url: '/task-sequence-progress' },
+    { text: 'GitHub', url: 'https://github.com' },
+  ] as const
 
-  for (let i = 0; i < expectedLinksText.length; i++) {
-    const linkText = await navLinks.nth(i).textContent()
-    expect(linkText).toContain(expectedLinksText[i])
+  // @ts-expect-error right
+  for (const [index, link] of expectedLinks.entries()) {
+    const navLink = navLinks.nth(index)
+    await expect(navLink).toContainText(link.text)
+
+    if (link.text !== 'GitHub') {
+      await navLink.click()
+      await expect(page).toHaveURL(link.url)
+      await page.goBack()
+    }
   }
 
-  await navLinks.nth(0).click()
-  await expect(page).toHaveURL('/loading-and-streaming')
-
-  await expect(
-    page.getByRole('heading', { name: 'Show loading UI and streaming' }),
-  ).toBeVisible()
-
-  await navLinks.nth(3).click()
+  // 测试 Todo 页面
+  await navLinks.filter({ hasText: 'Todo demo' }).click()
   await expect(page).toHaveURL('/todo')
   await expect(
     page.getByRole('heading', { name: 'Todo demo with RCC' }),
   ).toBeVisible()
+
+  // 测试 Loading and Streaming 页面
+  await navLinks.filter({ hasText: 'streaming ui' }).click()
+  await expect(page).toHaveURL('/loading-and-streaming')
+  await expect(
+    page.getByRole('heading', { name: 'Show loading UI and streaming' }),
+  ).toBeVisible()
+
   // todo test submit
 })
