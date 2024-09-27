@@ -14,7 +14,7 @@ const nextConfig = bundleAnalyzer({
   output: 'standalone',
   distDir: isProd ? 'dist' : '.next',
   cacheMaxMemorySize: 60 * 1024,
-  // fix all before production. Now it slow the develop speed.
+  // todo: fix it all before production. Now it slow the develop speed.
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.

@@ -8,7 +8,7 @@ module.exports = {
   extends: [
     // 'next/core-web-vitals',
     'next',
-    'next/typescript',
+    'next/typescript', // or use 'plugin:@typescript-eslint/recommended-type-checked'
     'plugin:tailwindcss/recommended',
     'plugin:prettier/recommended',
   ],
@@ -31,7 +31,7 @@ module.exports = {
       files: ['**/*.test.ts', '**/*.test.tsx'],
       excludedFiles: ['e2e/**'],
       extends: [
-        'plugin:vitest/legacy-recommended',
+        'plugin:@vitest/legacy-recommended',
         'plugin:jest-dom/recommended',
         'plugin:testing-library/react',
       ],
