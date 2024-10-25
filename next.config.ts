@@ -1,4 +1,5 @@
 import withBundleAnalyzer from '@next/bundle-analyzer'
+import type { NextConfig } from 'next'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -8,8 +9,7 @@ const bundleAnalyzer = withBundleAnalyzer({
   analyzerMode: 'static',
 })
 
-/** @type {import('next').NextConfig} */
-const nextConfig = bundleAnalyzer({
+const nextConfig: NextConfig = bundleAnalyzer({
   reactStrictMode: true,
   output: 'standalone',
   distDir: isProd ? 'dist' : '.next',
@@ -24,6 +24,11 @@ const nextConfig = bundleAnalyzer({
   typescript: {
     // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
     ignoreBuildErrors: true,
+  },
+  experimental: {
+    staticGenerationRetryCount: 1,
+    staticGenerationMaxConcurrency: 8,
+    staticGenerationMinPagesPerWorker: 25,
   },
 })
 

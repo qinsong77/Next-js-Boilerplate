@@ -18,9 +18,7 @@ export type EggGroup = {
 
 export async function getEggGroup(): Promise<EggGroup> {
   logger.info('getEggGroup start')
-  const res = await fetch('https://pokeapi.co/api/v2/egg-group', {
-    cache: 'no-store',
-  })
+  const res = await fetch('https://pokeapi.co/api/v2/egg-group')
   await sleep(3000)
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

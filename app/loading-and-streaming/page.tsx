@@ -32,9 +32,7 @@ type Res = {
 }
 async function getUserInfo(): Promise<Res> {
   logger.info('getUserInfo starting ')
-  const res = await fetch('https://randomuser.me/api/', {
-    cache: 'no-store',
-  })
+  const res = await fetch('https://randomuser.me/api/')
   await sleep(1000)
   logger.info(res, 'getUserInfo done')
 

@@ -4,8 +4,8 @@ import { logger } from '@/lib/shared'
 
 import { DropDown } from './_components/dropdown'
 
-// This part is important!
-export const dynamic = 'force-dynamic'
+// This part is important! no need for next 15
+// export const dynamic = 'force-dynamic'
 
 const fetchPokemon = async (poke: string) => {
   if (!poke) return null

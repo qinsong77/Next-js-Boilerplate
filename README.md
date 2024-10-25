@@ -46,6 +46,7 @@ For Next.js, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/N
 - How to test, the test strategy/architecture with RSC
 - in [table pagination demo](./app/pagination-demo/page.tsx), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
   - Fixed by using [useTransition](https://19.react.dev/reference/react/useTransition), refer: [Preventing unwanted loading indicators ](https://19.react.dev/reference/react/useTransition#preventing-unwanted-loading-indicators)
+- Remove `"react-is": "19.0.0-rc-1631855f-20241023"` in `package.json` for support React 19
 
 ## Best Practices
 

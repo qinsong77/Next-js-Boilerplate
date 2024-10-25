@@ -11,9 +11,7 @@ type RES = {
 
 async function getEggById(id: number): Promise<RES> {
   logger.info({ id }, 'getEggById start')
-  const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${id}`, {
-    cache: 'no-store',
-  })
+  const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${id}`)
   await sleep(1500)
 
   if (!res.ok) {

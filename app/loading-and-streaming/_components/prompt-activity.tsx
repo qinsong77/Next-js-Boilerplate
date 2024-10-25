@@ -14,9 +14,7 @@ interface Joke {
 }
 async function getRandomJoke(): Promise<Joke> {
   logger.info('getRandomJoke start')
-  const res = await fetch('https://api.chucknorris.io/jokes/random', {
-    cache: 'no-store',
-  })
+  const res = await fetch('https://api.chucknorris.io/jokes/random')
   await sleep(1500)
 
   if (!res.ok) {
