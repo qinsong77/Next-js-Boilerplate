@@ -27,7 +27,6 @@ test('app journey', async ({ page }) => {
     { text: 'GitHub', url: 'https://github.com' },
   ] as const
 
-  // @ts-expect-error right
   for (const [index, link] of expectedLinks.entries()) {
     const navLink = navLinks.nth(index)
     await expect(navLink).toContainText(link.text)

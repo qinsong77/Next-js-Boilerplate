@@ -1,6 +1,8 @@
-# Next.js 14 Boilerplate
+# Next.js 15 Boilerplate
 
-This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) 15 Boilerplate project base on [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+For Next.js, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/Next-js-Boilerplate/tree/nextjs14-v2)
 
 ## Features
 

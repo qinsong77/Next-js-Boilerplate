@@ -8,7 +8,7 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
     "dev": "next dev | pino-pretty",
-    "dev:turbo": "next dev --turbo | pino-pretty",
+    "dev:turbo": "next dev --turbopack | pino-pretty",
     "build": "next build",
     "preview": "next build && cp -r dist/static dist/standalone/dist/static && cp -r public dist/standalone/public && node dist/standalone/server.js",
     "build-analyze": "cross-env ANALYZE=true pnpm run build",
@@ -49,12 +49,12 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "lucide-react": "^0.441.0",
-    "next": "^14.2.13",
+    "next": "15.0.1",
     "next-themes": "^0.3.0",
     "pino": "^9.4.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "recharts": "^2.12.7",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
+    "recharts": "^2.13.0",
     "server-only": "^0.0.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
@@ -64,21 +64,21 @@
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@commitlint/types": "^19.5.0",
-    "@next/bundle-analyzer": "^14.2.13",
+    "@next/bundle-analyzer": "15.0.1",
     "@playwright/test": "^1.47.1",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/node": "^22",
-    "@types/react": "^18.3.8",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^2.1.1",
     "@vitest/eslint-plugin": "^1.1.4",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "eslint": "^8",
-    "eslint-config-next": "^14.2.13",
+    "eslint-config-next": "15.0.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest-dom": "^5.4.0",
     "eslint-plugin-playwright": "^1.6.2",
@@ -100,5 +100,11 @@
   },
   "engines": {
     "node": ">=18.17.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }
