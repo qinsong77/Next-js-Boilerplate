@@ -43,13 +43,27 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 - Update to Next.js 15
 - How to test, the test strategy/architecture with RSC
 - in [table pagination demo](./app/pagination-demo/page.tsx), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
+  - Fixed by using [useTransition](https://19.react.dev/reference/react/useTransition), refer: [Preventing unwanted loading indicators ](https://19.react.dev/reference/react/useTransition#preventing-unwanted-loading-indicators)
+
+## Best Practices
+
+- `server-only`, [Keeping Server-only Code out of the Client Environment](https://nextjs.org/docs/app/building-your-application/rendering/composition-patterns#keeping-server-only-code-out-of-the-client-environment)
+
+## Libraries
+
+- [nuqs](https://github.com/47ng/nuqs) Type-safe search params state manager for Next.js - Like React.useState, but stored in the URL query string.
+- [next-safe-action](https://github.com/TheEdoRan/next-safe-action) Type safe and validated Server Actions in your Next.js project.
+
+## Practices Refers
+
+- [next authentication](https://www.robinwieruch.de/next-authentication/)
 
 ## Know issues
 
 - [x] `eslint-plugin-vitest` can't updated, otherwise eslint will be broken. => `'plugin:prettier/recommended',`
 - Standalone building output can't run if copy it's folder, cause pnpm `symlink`, node_module cant resolve correctly. It can be avoided by installing the package with `node-linker=hoisted` in the pnpm configuration before standalone output.
 
-## Refers:
+## Refers
 
 - [Next.js App Router Playground](https://github.com/vercel/app-playground)
 - [nodejs.org doc web repo](https://github.com/nodejs/nodejs.org/tree/main)
@@ -64,7 +78,6 @@ This is a [Next.js](https://nextjs.org/) 14 Boilerplate project base on [`create
 First, run the development server:
 
 ```bash
-# or
 pnpm dev
 # or
 pnpm dev:turbo

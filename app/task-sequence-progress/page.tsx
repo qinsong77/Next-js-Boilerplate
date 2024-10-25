@@ -5,6 +5,8 @@ import { ExternalLink } from '@/components/site-layout'
 import { StepComponent } from './_components/step-component'
 import { unsafe_createSequentialProcesses } from './utils'
 
+export const dynamic = 'force-dynamic'
+
 async function firstProcess(id: string) {
   return new Promise((resolve) =>
     setTimeout(() => resolve(`First process done for ${id}`), 1000),

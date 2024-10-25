@@ -14,8 +14,8 @@ export default async function Page() {
     <div>
       <h1>Table Demo</h1>
       <h2>
-        user will see this immediately, if we didn&apos;t await any function
-        above
+        user will see this text immediately, if we didn&apos;t await any
+        function on Page component.
       </h2>
       <Separator className="my-4" />
       <Suspense fallback={<TableLoading />}>

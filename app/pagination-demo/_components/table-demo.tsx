@@ -14,7 +14,7 @@ import {
   useReactTable,
   VisibilityState,
 } from '@tanstack/react-table'
-import React, { use, useState } from 'react'
+import React, { use, useState, useTransition } from 'react'
 
 // todo how to show pagination component when start pagination on client
 import { columns } from '@/app/pagination-demo/_components/columns'
@@ -27,6 +27,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { logger } from '@/lib/shared'
 
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
@@ -36,10 +37,12 @@ type TableDemoProps = {
 }
 
 export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
+  const [isPending, startTransition] = useTransition()
   // todo make it as react context, update the promise in toolbar, eg: when inputting, re-fetch from server with useDeferredValue value?
   const [getUserListPromise, setGetUserListPromise] = useState(
     initGetTaskListPromise,
   )
+  logger.info({ isPending }, 'TableDemo isPending')
 
   const [pagination, setPagination] = React.useState<PaginationState>({
     pageIndex: 0,
@@ -67,12 +70,15 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
     // very important!
     manualPagination: true, // turn off client-side pagination
     onPaginationChange: (updater) => {
-      const newPagination =
-        typeof updater === 'function' ? updater(pagination) : updater
-      console.log(newPagination)
-      const { pageIndex, pageSize } = newPagination
-      setGetUserListPromise(getTaskList({ pageIndex, pageSize }))
-      setPagination(newPagination)
+      // !IMPORTANT using [useTransition](https://19.react.dev/reference/react/useTransition), refer: [Preventing unwanted loading indicators ](https://19.react.dev/reference/react/useTransition#preventing-unwanted-loading-indicators)
+      startTransition(() => {
+        const newPagination =
+          typeof updater === 'function' ? updater(pagination) : updater
+        console.log(newPagination)
+        const { pageIndex, pageSize } = newPagination
+        setGetUserListPromise(getTaskList({ pageIndex, pageSize }))
+        setPagination(newPagination)
+      })
       // const newPagination = updater({ pageIndex: page - 1, pageSize })
       // setPage(newPagination.pageIndex + 1)
       // setPageSize(newPagination.pageSize)
@@ -124,7 +130,11 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+            {isPending ? (
+              <div className="flex size-full min-h-32 items-center justify-center">
+                <p className="text-xs text-secondary-foreground">loading...</p>
+              </div>
+            ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
