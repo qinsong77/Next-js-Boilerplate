@@ -76,7 +76,9 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
           typeof updater === 'function' ? updater(pagination) : updater
         console.log(newPagination)
         const { pageIndex, pageSize } = newPagination
-        setGetUserListPromise(getTaskList({ pageIndex, pageSize }))
+        setGetUserListPromise(
+          getTaskList({ pageIndex: pageIndex + 1, pageSize }),
+        )
         setPagination(newPagination)
       })
       // const newPagination = updater({ pageIndex: page - 1, pageSize })
@@ -106,8 +108,8 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
   return (
     <div className="space-y-4">
       <DataTableToolbar table={table} />
-      <div className="rounded-md border">
-        <Table>
+      <div className="overflow-x-auto rounded-md border">
+        <Table className="min-w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -116,6 +118,7 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
                     <TableHead
                       key={header.id}
                       colSpan={header.colSpan}
+                      className="px-4 py-2"
                     >
                       {header.isPlaceholder
                         ? null
@@ -139,9 +142,13 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
+                  className="hover:bg-gray-100"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell
+                      key={cell.id}
+                      className="px-4 py-2"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),

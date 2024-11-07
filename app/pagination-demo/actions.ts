@@ -20,7 +20,7 @@ export async function getTaskList({
   pageIndex: number
   pageSize: number
 }): Promise<GetTaskListResponse> {
-  logger.info(pageIndex, 'getTaskList start, page is: ')
+  logger.info({ pageIndex }, 'getTaskList start, page is: ')
   const startIndex = (pageIndex - 1) * pageSize
   const endIndex = startIndex + pageSize
 
@@ -32,6 +32,6 @@ export async function getTaskList({
   }
   await sleep(3000)
 
-  logger.info(paginatedData, 'getTaskList done')
+  logger.info({ paginatedData }, 'getTaskList done')
   return paginatedData
 }
