@@ -1,6 +1,9 @@
 module.exports = {
   // this will check Typescript files
-  '**/*.(ts|tsx)': () => 'tsc --noEmit',
+  '**/*.(ts|tsx)': (filenames) => {
+    const filenamesJoined = filenames.join(' ')
+    return `tsc-files --noEmit ${filenamesJoined}`
+  },
 
   // This will lint and format TypeScript and JavaScript files
   '**/*.(ts|tsx|js)': (filenames) => [
