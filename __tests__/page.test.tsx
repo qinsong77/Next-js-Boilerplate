@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-
 // import { describe, expect, it } from 'vitest'
 import Page from '../app/page'
+import { render, screen, userEvent } from './react-test-utils'
+
 describe('Home component', () => {
   it('renders correctly', () => {
     render(<Page />)

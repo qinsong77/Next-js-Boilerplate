@@ -1,14 +1,12 @@
-import { act, renderHook, waitFor } from '@testing-library/react'
-import { describe, expect, it, vi } from 'vitest'
-
+import { renderHook, waitFor } from '@/__tests__/react-test-utils'
 import { useCustomerInterval } from '@/hooks/client/use-customer-interval'
 
 describe('[hooks] -useCustomerInterval', () => {
   it('should re', async () => {
-    const mockFn = vi.fn()
-    renderHook(() => useCustomerInterval(mockFn, 200))
+    const mockFunction = vi.fn()
+    renderHook(() => useCustomerInterval(mockFunction, 200))
     await waitFor(() => {
-      expect(mockFn).toHaveBeenCalled()
+      expect(mockFunction).toHaveBeenCalled()
     })
   })
 })
