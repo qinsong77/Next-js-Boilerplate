@@ -13,13 +13,13 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu'
 
-interface DataTableViewOptionsProps<TData> {
+interface DataTableViewOptionsProperties<TData> {
   table: Table<TData>
 }
 
 export function DataTableViewOptions<TData>({
   table,
-}: DataTableViewOptionsProps<TData>) {
+}: DataTableViewOptionsProperties<TData>) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -41,8 +41,7 @@ export function DataTableViewOptions<TData>({
         {table
           .getAllColumns()
           .filter(
-            (column) =>
-              typeof column.accessorFn !== 'undefined' && column.getCanHide(),
+            (column) => column.accessorFn !== undefined && column.getCanHide(),
           )
           .map((column) => {
             return (

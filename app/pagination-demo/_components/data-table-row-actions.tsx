@@ -21,13 +21,13 @@ import {
 import { labels } from '../_data'
 import { taskSchema } from '../_data/schema'
 
-interface DataTableRowActionsProps<TData> {
+interface DataTableRowActionsProperties<TData> {
   row: Row<TData>
 }
 
 export function DataTableRowActions<TData>({
   row,
-}: DataTableRowActionsProps<TData>) {
+}: DataTableRowActionsProperties<TData>) {
   const task = taskSchema.parse(row.original)
 
   return (

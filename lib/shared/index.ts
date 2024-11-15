@@ -1,2 +1,2 @@
 export { default as logger } from './logger'
-export * from './stringifyObjectSafe'
+export * from './stringify-object-safe'

@@ -17,10 +17,10 @@ const options = ['mew', 'mewtwo', 'pikachu']
 export const DropDown = ({ selected }: { selected: string }) => {
   const router = useRouter()
   const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const searchParameters = useSearchParams()
 
   const onValueChange = (value: string) => {
-    const current = new URLSearchParams(searchParams)
+    const current = new URLSearchParams(searchParameters)
 
     if (value === 'none' || !value) {
       current.delete('selected')

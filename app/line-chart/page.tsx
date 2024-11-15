@@ -132,8 +132,14 @@ export default function Component() {
 
   const total = React.useMemo(
     () => ({
-      desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
-      mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0),
+      desktop: chartData.reduce(
+        (accumulator, current) => accumulator + current.desktop,
+        0,
+      ),
+      mobile: chartData.reduce(
+        (accumulator, current) => accumulator + current.mobile,
+        0,
+      ),
     }),
     [],
   )

@@ -11,17 +11,17 @@ type RES = {
 
 async function getEggById(id: number): Promise<RES> {
   logger.info({ id }, 'getEggById start')
-  const res = await fetch(`https://pokeapi.co/api/v2/egg-group/${id}`)
+  const response = await fetch(`https://pokeapi.co/api/v2/egg-group/${id}`)
   await sleep(1500)
 
-  if (!res.ok) {
+  if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to getEggById')
-    logger.error(e, 'getPetById')
-    throw e
+    const error = new Error('Failed to getEggById')
+    logger.error(error, 'getPetById')
+    throw error
   }
 
-  return await res.json()
+  return await response.json()
 }
 
 export const RscComponent = async ({ id }: { id: number }) => {

@@ -1,6 +1,7 @@
 // @vitest-environment node
 
-import * as fs from 'fs/promises'
+import * as fs from 'node:fs/promises'
+
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { readFile } from './read-file'

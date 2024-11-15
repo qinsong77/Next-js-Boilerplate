@@ -66,11 +66,13 @@ const groups = [
 
 type Team = (typeof groups)[number]['teams'][number]
 
-type PopoverTriggerProps = React.ComponentPropsWithoutRef<typeof PopoverTrigger>
+type PopoverTriggerProperties = React.ComponentPropsWithoutRef<
+  typeof PopoverTrigger
+>
 
-type TeamSwitcherProps = PopoverTriggerProps
+type TeamSwitcherProperties = PopoverTriggerProperties
 
-export default function TeamSwitcher({ className }: TeamSwitcherProps) {
+export default function TeamSwitcher({ className }: TeamSwitcherProperties) {
   const [open, setOpen] = React.useState(false)
   const [showNewTeamDialog, setShowNewTeamDialog] = React.useState(false)
   const [selectedTeam, setSelectedTeam] = React.useState<Team>(

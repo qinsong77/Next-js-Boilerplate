@@ -32,11 +32,11 @@ import { logger } from '@/lib/shared'
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
 
-type TableDemoProps = {
+type TableDemoProperties = {
   initGetTaskListPromise: ReturnType<typeof getTaskList>
 }
 
-export function TableDemo({ initGetTaskListPromise }: TableDemoProps) {
+export function TableDemo({ initGetTaskListPromise }: TableDemoProperties) {
   const [isPending, startTransition] = useTransition()
   // todo make it as react context, update the promise in toolbar, eg: when inputting, re-fetch from server with useDeferredValue value?
   const [getUserListPromise, setGetUserListPromise] = useState(

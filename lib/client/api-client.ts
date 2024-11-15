@@ -3,19 +3,19 @@
  */
 import { stringifyObjectSafe } from '@/lib/shared'
 
-function processResponse(res: {
+function processResponse(response: {
   success: boolean
   message?: boolean
   content: unknown
 }) {
-  if (res.success) {
-    return res.content
+  if (response.success) {
+    return response.content
   }
-  return Promise.reject('fetch error: ' + res.message)
+  return Promise.reject('fetch error: ' + response.message)
 }
 
-async function processErrorContent(res: Response) {
-  return `Response Error:[${res.status}][${res.statusText}]:${await res.text()}`
+async function processErrorContent(response: Response) {
+  return `Response Error:[${response.status}][${response.statusText}]:${await response.text()}`
 }
 
 /**
@@ -29,17 +29,17 @@ async function processErrorContent(res: Response) {
 export const api = {
   async get<Response = unknown>(
     requestUrl: string,
-    searchParams?: URLSearchParams,
+    searchParameters?: URLSearchParams,
     options?: RequestInit,
   ) {
-    const search = searchParams?.toString() || ''
-    const res = await fetch(`${requestUrl}${search ? `?${search}` : ''}`, {
+    const search = searchParameters?.toString() || ''
+    const response = await fetch(`${requestUrl}${search ? `?${search}` : ''}`, {
       ...options,
     })
-    if (!res.ok) {
-      return Promise.reject(await processErrorContent(res))
+    if (!response.ok) {
+      throw await processErrorContent(response)
     }
-    const r = await res.json()
+    const r = await response.json()
     return processResponse(r) as Response
   },
 
@@ -48,15 +48,15 @@ export const api = {
     body: P,
     options?: RequestInit,
   ) {
-    const res = await fetch(requestUrl, {
+    const response = await fetch(requestUrl, {
       method: 'POST',
       body: stringifyObjectSafe(body),
       ...options,
     })
-    if (!res.ok) {
-      return Promise.reject(await processErrorContent(res))
+    if (!response.ok) {
+      throw await processErrorContent(response)
     }
-    const r = await res.json()
+    const r = await response.json()
     return processResponse(r) as R
   },
 
@@ -65,15 +65,15 @@ export const api = {
     body: P,
     options?: RequestInit,
   ) {
-    const res = await fetch(requestUrl, {
+    const response = await fetch(requestUrl, {
       method: 'PATCH',
       body: stringifyObjectSafe(body),
       ...options,
     })
-    if (!res.ok) {
-      return Promise.reject(await processErrorContent(res))
+    if (!response.ok) {
+      throw await processErrorContent(response)
     }
-    const r = await res.json()
+    const r = await response.json()
     return processResponse(r) as R
   },
 
@@ -82,36 +82,34 @@ export const api = {
     body: P,
     options?: RequestInit,
   ) {
-    const res = await fetch(requestUrl, {
+    const response = await fetch(requestUrl, {
       method: 'POST',
       body: stringifyObjectSafe(body),
       ...options,
     })
-      .then(async (resp) => {
-        if (!resp.ok) {
-          return Promise.reject(await processErrorContent(resp))
+      .then(async (response) => {
+        if (!response.ok) {
+          throw await processErrorContent(response)
         }
-        return resp
+        return response
       })
-      .catch((e) => {
-        return Promise.reject(
-          e?.message || e?.toString() || stringifyObjectSafe(e),
-        )
+      .catch((error) => {
+        throw error?.message || error?.toString() || stringifyObjectSafe(error)
       })
-    return res
+    return response
   },
 
-  async put<T, Res>(requestUrl: string, data: T, options?: RequestInit) {
-    const res = await fetch(requestUrl, {
+  async put<T, Resource>(requestUrl: string, data: T, options?: RequestInit) {
+    const response = await fetch(requestUrl, {
       method: 'PUT',
       body: stringifyObjectSafe(data),
       ...options,
     })
-    if (!res.ok) {
-      return Promise.reject(await processErrorContent(res))
+    if (!response.ok) {
+      throw await processErrorContent(response)
     }
-    const r = await res.json()
-    return processResponse(r) as Res
+    const r = await response.json()
+    return processResponse(r) as Resource
   },
 
   /**
@@ -122,20 +120,20 @@ export const api = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async delete<P, R>(
     requestUrl: string,
-    searchStr?: string,
+    searchString?: string,
     options?: RequestInit,
   ) {
-    const res = await fetch(
-      `${requestUrl}${searchStr ? '?' : ''}${searchStr || ''}`,
+    const response = await fetch(
+      `${requestUrl}${searchString ? '?' : ''}${searchString || ''}`,
       {
         method: 'DELETE',
         ...options,
       },
     )
-    if (!res.ok) {
-      return Promise.reject(await processErrorContent(res))
+    if (!response.ok) {
+      throw await processErrorContent(response)
     }
-    const r = await res.json()
+    const r = await response.json()
     return processResponse(r) as R
   },
 }

@@ -8,11 +8,11 @@ import Todo from './todo'
 
 async function getTodos(): Promise<TODO[]> {
   // todo fix deployed not working
-  const res = await fetch('http://localhost:3000/api/todo', {
+  const response = await fetch('http://localhost:3000/api/todo', {
     cache: 'no-store',
   })
-  logger.trace(res, 'getTodos done:')
-  return await res.json()
+  logger.trace(response, 'getTodos done:')
+  return await response.json()
 }
 
 export async function TodoRccDemo() {

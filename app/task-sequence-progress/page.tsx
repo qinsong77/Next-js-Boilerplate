@@ -25,10 +25,10 @@ async function thirdProcess(result: unknown) {
   )
 }
 
-export default async function AsyncWorks(props: {
+export default async function AsyncWorks(properties: {
   params: Promise<{ id: string }>
 }) {
-  const { id } = await props.params
+  const { id } = await properties.params
 
   const [first, second, third] = unsafe_createSequentialProcesses(
     () => firstProcess(id),

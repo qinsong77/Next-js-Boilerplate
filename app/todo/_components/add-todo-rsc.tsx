@@ -6,16 +6,17 @@ import { logger } from '@/lib/shared'
 
 import { addTodo } from './data'
 
+async function createTodo(formData: FormData) {
+  'use server'
+  logger.trace({ formData }, 'createTodo action with formData:')
+  const title = formData.get('name') as string
+  logger.info({ title }, 'createTodo title')
+  const todo = addTodo({ title, completed: false })
+  console.log(todo)
+  revalidatePath('/todo')
+}
+
 export const AddTodoRsc = () => {
-  async function createTodo(formData: FormData) {
-    'use server'
-    logger.trace({ formData }, 'createTodo action with formData:')
-    const title = formData.get('name') as string
-    logger.info({ title }, 'createTodo title')
-    const todo = addTodo({ title, completed: false })
-    console.log(todo)
-    revalidatePath('/todo')
-  }
   return (
     <div>
       <form

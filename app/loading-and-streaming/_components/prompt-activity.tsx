@@ -14,16 +14,16 @@ interface Joke {
 }
 async function getRandomJoke(): Promise<Joke> {
   logger.info('getRandomJoke start')
-  const res = await fetch('https://api.chucknorris.io/jokes/random')
+  const response = await fetch('https://api.chucknorris.io/jokes/random')
   await sleep(1500)
 
-  if (!res.ok) {
+  if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to getRandomJoke')
-    logger.error(e)
-    throw e
+    const error = new Error('Failed to getRandomJoke')
+    logger.error(error)
+    throw error
   }
-  const data = res.json()
+  const data = await response.json()
   logger.info(data, 'getRandomJoke done')
 
   return data

@@ -21,12 +21,12 @@ const fetchPokemon = async (poke: string) => {
   }
 }
 
-export default async function Foo(props: {
+export default async function Foo(properties: {
   searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
-  const searchParams = await props.searchParams
-  logger.trace(searchParams, 'searchParams')
-  const selectedSearch = searchParams?.selected ?? ''
+  const searchParameters = await properties.searchParams
+  logger.trace(searchParameters, 'searchParams')
+  const selectedSearch = searchParameters?.selected ?? ''
   const selected = Array.isArray(selectedSearch)
     ? selectedSearch[0]
     : selectedSearch

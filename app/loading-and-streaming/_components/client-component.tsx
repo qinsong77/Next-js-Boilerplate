@@ -14,25 +14,25 @@ export const ClientComponent = ({
   children?: React.ReactNode
   rsc?: React.ReactNode
 }) => {
-  const [val, setVal] = useState(0)
+  const [value, setValue] = useState(0)
   const { toast } = useToast()
   useEffect(() => {
-    if (val === 2) {
+    if (value === 2) {
       toast({
         title: 'clicked, condition RSC render',
-        description: 'val is: ' + val,
+        description: 'val is: ' + value,
       })
     }
-  }, [toast, val])
+  }, [toast, value])
 
   return (
     <div className="space-y-4">
       <div className="flex items-center space-x-4">
-        <p>Counter: {val}</p>
+        <p>Counter: {value}</p>
         <Button
           className="mr-2"
           onClick={() => {
-            setVal((prevState) => prevState + 1)
+            setValue((previousState) => previousState + 1)
           }}
         >
           Add
@@ -56,7 +56,7 @@ export const ClientComponent = ({
       <h2>Client component nested rsc</h2>
       {children}
       <h2>Client component nested rsc, condition render</h2>
-      {val > 2 && rsc}
+      {value > 2 && rsc}
     </div>
   )
 }

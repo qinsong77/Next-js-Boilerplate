@@ -11,20 +11,22 @@ export async function GET(request: Request) {
     },
     '"Request received"',
   )
-  const res = await fetch(`https://app-playground-api.vercel.app/api/reviews`)
+  const response = await fetch(
+    `https://app-playground-api.vercel.app/api/reviews`,
+  )
 
-  if (!res.ok) {
+  if (!response.ok) {
     // Render the closest `error.js` Error Boundary
     throw new Error('Something went wrong!')
   }
 
-  const reviews = (await res.json()) as Review[]
-  const response = Response.json({ reviews })
+  const reviews = (await response.json()) as Review[]
+  const jsonResponse = Response.json({ reviews })
   logger.trace(
     {
-      res: response,
+      res: jsonResponse,
     },
     '"response"',
   )
-  return response
+  return jsonResponse
 }

@@ -7,7 +7,7 @@ import { api } from './api-client'
 describe('api', () => {
   describe('get', () => {
     const requestUrl = 'https://example.com'
-    const searchParams = new URLSearchParams({
+    const searchParameters = new URLSearchParams({
       param1: 'value1',
       param2: 'value2',
     })
@@ -18,12 +18,12 @@ describe('api', () => {
         ok: true,
         json: () => Promise.resolve(expectedResponse),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
-      const result = await api.get(requestUrl, searchParams)
+      const result = await api.get(requestUrl, searchParameters)
 
       expect(mockFetch).toHaveBeenCalledWith(
-        `${requestUrl}?${searchParams.toString()}`,
+        `${requestUrl}?${searchParameters.toString()}`,
         {},
       )
       expect(result).toEqual(expectedResponse.content)
@@ -38,9 +38,9 @@ describe('api', () => {
         status: 500,
         text: () => Promise.resolve('Error message'),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
-      await expect(api.get(requestUrl, searchParams)).rejects.toEqual(
+      await expect(api.get(requestUrl, searchParameters)).rejects.toEqual(
         expectedError,
       )
     })
@@ -56,7 +56,7 @@ describe('api', () => {
         ok: true,
         json: () => Promise.resolve(expectedResponse),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
       const result = await api.post(requestUrl, requestBody)
 
@@ -75,7 +75,7 @@ describe('api', () => {
         text: () => Promise.resolve('Error Post Msg'),
         status: 502,
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
       await expect(api.post(requestUrl, requestBody)).rejects.toEqual(
         expectedError,
@@ -90,7 +90,7 @@ describe('api', () => {
     it('should return successful response', async () => {
       const expectedResponse = { ok: true } as Response
       const mockFetch = vi.fn().mockResolvedValue(expectedResponse)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
       const result = await api.postStream(requestUrl, requestBody)
 
@@ -108,7 +108,7 @@ describe('api', () => {
         statusText: 'error message',
         text: () => Promise.resolve(''),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
       await expect(api.postStream(requestUrl, requestBody)).rejects.toEqual(
         expectedError,
@@ -118,7 +118,7 @@ describe('api', () => {
 
   describe('delete', () => {
     const requestUrl = 'https://example.com'
-    const searchStr = 'id=1'
+    const searchString = 'id=1'
 
     it('should return successful response', async () => {
       const expectedResponse = { success: true, content: { data: 'test data' } }
@@ -126,11 +126,11 @@ describe('api', () => {
         ok: true,
         json: () => Promise.resolve(expectedResponse),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
-      const result = await api.delete(requestUrl, searchStr)
+      const result = await api.delete(requestUrl, searchString)
 
-      expect(mockFetch).toHaveBeenCalledWith(`${requestUrl}?${searchStr}`, {
+      expect(mockFetch).toHaveBeenCalledWith(`${requestUrl}?${searchString}`, {
         method: 'DELETE',
       })
       expect(result).toEqual(expectedResponse.content)
@@ -144,9 +144,9 @@ describe('api', () => {
         status: 400,
         text: () => Promise.resolve(''),
       } as Response)
-      global.fetch = mockFetch
+      globalThis.fetch = mockFetch
 
-      await expect(api.delete(requestUrl, searchStr)).rejects.toEqual(
+      await expect(api.delete(requestUrl, searchString)).rejects.toEqual(
         expectedError,
       )
     })
@@ -158,7 +158,7 @@ describe('api', () => {
     const options = { headers: { 'Content-Type': 'application/json' } }
 
     beforeEach(() => {
-      vi.spyOn(global, 'fetch').mockResolvedValue({
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
         ok: true,
         json: () =>
           Promise.resolve({ success: true, content: 'mockSuccessRes' }),
@@ -172,7 +172,7 @@ describe('api', () => {
     it('should call fetch with correct arguments', async () => {
       await api.patch(requestUrl, requestBody, options)
 
-      expect(global.fetch).toHaveBeenCalledWith(requestUrl, {
+      expect(globalThis.fetch).toHaveBeenCalledWith(requestUrl, {
         method: 'PATCH',
         body: stringifyObjectSafe(requestBody),
         ...options,
@@ -189,7 +189,7 @@ describe('api', () => {
     it('should reject with error content on failure', async () => {
       const expectedError =
         'Response Error:[500][error status text]:Error message'
-      vi.spyOn(global, 'fetch').mockResolvedValue({
+      vi.spyOn(globalThis, 'fetch').mockResolvedValue({
         ok: false,
         statusText: 'error status text',
         status: 500,
@@ -208,7 +208,7 @@ describe('api', () => {
     const options = { headers: { 'Content-Type': 'application/json' } }
 
     beforeEach(() => {
-      vi.spyOn(global, 'fetch').mockImplementation(() =>
+      vi.spyOn(globalThis, 'fetch').mockImplementation(() =>
         Promise.resolve({
           ok: true,
           json: () =>
@@ -223,7 +223,7 @@ describe('api', () => {
 
     it('should call fetch with the correct arguments', async () => {
       await api.put(requestUrl, data, options)
-      expect(global.fetch).toHaveBeenCalledWith(requestUrl, {
+      expect(globalThis.fetch).toHaveBeenCalledWith(requestUrl, {
         method: 'PUT',
         body: stringifyObjectSafe(data),
         ...options,
@@ -240,7 +240,7 @@ describe('api', () => {
 
     it('should reject with the processed error content on failure', async () => {
       const expectedError = 'Response Error:[500][undefined]:Error message'
-      vi.spyOn(global, 'fetch').mockImplementation(() =>
+      vi.spyOn(globalThis, 'fetch').mockImplementation(() =>
         Promise.resolve({
           ok: false,
           status: 500,

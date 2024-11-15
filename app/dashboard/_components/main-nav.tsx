@@ -4,12 +4,12 @@ import { cn } from '@/lib/utils'
 
 export function MainNav({
   className,
-  ...props
+  ...properties
 }: React.HTMLAttributes<HTMLElement>) {
   return (
     <nav
       className={cn('flex items-center space-x-4 lg:space-x-6', className)}
-      {...props}
+      {...properties}
     >
       <Link
         href="/dashboard#Overview"

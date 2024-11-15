@@ -1,4 +1,4 @@
-import * as fs from 'fs/promises'
+import * as fs from 'node:fs/promises'
 
 /**
  * 异步读取文件内容

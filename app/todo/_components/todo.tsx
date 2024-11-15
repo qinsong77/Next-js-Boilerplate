@@ -32,7 +32,7 @@ export default function Todo(todo: TODO) {
   }
 
   return (
-    <li style={{ opacity: !isMutating ? 1 : 0.7 }}>
+    <li style={{ opacity: isMutating ? 0.7 : 1 }}>
       <div className="flex h-8 items-center space-x-2">
         <Checkbox
           id={todo.id}

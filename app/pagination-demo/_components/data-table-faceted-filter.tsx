@@ -21,7 +21,7 @@ import {
 import { Separator } from '@/components/ui/separator'
 import { cn } from '@/lib/utils'
 
-interface DataTableFacetedFilterProps<TData, TValue> {
+interface DataTableFacetedFilterProperties<TData, TValue> {
   column?: Column<TData, TValue>
   title?: string
   options: {
@@ -35,7 +35,7 @@ export function DataTableFacetedFilter<TData, TValue>({
   column,
   title,
   options,
-}: DataTableFacetedFilterProps<TData, TValue>) {
+}: DataTableFacetedFilterProperties<TData, TValue>) {
   const facets = column?.getFacetedUniqueValues()
   const selectedValues = new Set(column?.getFilterValue() as string[])
 
@@ -107,9 +107,9 @@ export function DataTableFacetedFilter<TData, TValue>({
                       } else {
                         selectedValues.add(option.value)
                       }
-                      const filterValues = Array.from(selectedValues)
+                      const filterValues = [...selectedValues]
                       column?.setFilterValue(
-                        filterValues.length ? filterValues : undefined,
+                        filterValues.length > 0 ? filterValues : undefined,
                       )
                     }}
                   >

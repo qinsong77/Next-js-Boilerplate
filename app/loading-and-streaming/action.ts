@@ -18,15 +18,15 @@ export type EggGroup = {
 
 export async function getEggGroup(): Promise<EggGroup> {
   logger.info('getEggGroup start')
-  const res = await fetch('https://pokeapi.co/api/v2/egg-group')
+  const response = await fetch('https://pokeapi.co/api/v2/egg-group')
   await sleep(3000)
-  if (!res.ok) {
+  if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to fetch data')
-    logger.error(e)
-    throw e
+    const error = new Error('Failed to fetch data')
+    logger.error(error)
+    throw error
   }
-  const data = await res.json()
+  const data = await response.json()
   logger.info(data, 'getEggGroup done')
   return data
 }

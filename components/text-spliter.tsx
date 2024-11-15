@@ -6,17 +6,17 @@ import { useCustomerInterval } from '@/hooks/client'
 const orgText = 'React & Next.js 14'
 export const TextSplitter = () => {
   const [count, setCount] = useState(0)
-  const pausedTimeRef = useCustomerInterval(() => {
+  const pausedTimeReference = useCustomerInterval(() => {
     startTransition(() => {
-      setCount((prevState) => {
-        if (prevState === orgText.length) {
+      setCount((previousState) => {
+        if (previousState === orgText.length) {
           return 0
         }
-        const val = prevState + 1
-        if (val === orgText.length - 1) {
-          pausedTimeRef.current = 1000
+        const value = previousState + 1
+        if (value === orgText.length - 1) {
+          pausedTimeReference.current = 1000
         }
-        return val
+        return value
       })
     })
   }, 100)

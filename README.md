@@ -56,10 +56,12 @@ For Next.js, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/N
 
 - [nuqs](https://github.com/47ng/nuqs) Type-safe search params state manager for Next.js - Like React.useState, but stored in the URL query string.
 - [next-safe-action](https://github.com/TheEdoRan/next-safe-action) Type safe and validated Server Actions in your Next.js project.
+- [magic ui](https://magicui.design)
 
 ## Practices Refers
 
 - [next authentication](https://www.robinwieruch.de/next-authentication/)
+- [How to Set Up Next.js 15 for Production in 2024](https://www.reactsquad.io/blog/how-to-set-up-next-js-15-for-production)
 
 ## Know issues
 

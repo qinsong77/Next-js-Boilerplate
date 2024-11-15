@@ -10,13 +10,13 @@ import { priorities, statuses } from '../_data'
 import { DataTableFacetedFilter } from './data-table-faceted-filter'
 import { DataTableViewOptions } from './data-table-view-options'
 
-interface DataTableToolbarProps<TData> {
+interface DataTableToolbarProperties<TData> {
   table: Table<TData>
 }
 
 export function DataTableToolbar<TData>({
   table,
-}: DataTableToolbarProps<TData>) {
+}: DataTableToolbarProperties<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
   return (

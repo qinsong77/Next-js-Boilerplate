@@ -11,7 +11,7 @@ import { PromptActivity } from './_components/prompt-activity'
 import { RscComponent } from './_components/rsc-component'
 import { SideBarLoading } from './loading'
 
-type Res = {
+type Response = {
   results: {
     gender: string
     phone: string
@@ -30,22 +30,23 @@ type Res = {
     }
   }[]
 }
-async function getUserInfo(): Promise<Res> {
+async function getUserInfo(): Promise<Response> {
   logger.info('getUserInfo starting ')
-  const res = await fetch('https://randomuser.me/api/')
+  const response = await fetch('https://randomuser.me/api/')
   await sleep(1000)
-  logger.info(res, 'getUserInfo done')
+  logger.info(response, 'getUserInfo done')
 
-  if (!res.ok) {
+  if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary
-    const e = new Error('Failed to getUserInfo')
-    logger.error(e)
-    throw e
+    const error = new Error('Failed to getUserInfo')
+    logger.error(error)
+    throw error
   }
 
-  return res.json()
+  return await response.json()
 }
 const Page = async () => {
+  // eslint-disable-next-line unicorn/no-await-expression-member
   const data = (await getUserInfo())?.results?.[0] ?? {}
 
   return (

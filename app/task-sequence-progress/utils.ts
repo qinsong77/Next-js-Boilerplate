@@ -1,14 +1,14 @@
 export function unsafe_createSequentialProcesses<T extends unknown[], R>(
   ...processes: [
-    (arg?: unknown) => Promise<T[0]>,
-    ...((arg: unknown) => Promise<unknown>)[],
+    (argument?: unknown) => Promise<T[0]>,
+    ...((argument: unknown) => Promise<unknown>)[],
   ]
 ): Promise<R>[] {
-  return processes.reduce((acc, process, index) => {
+  return processes.reduce((accumulator, process, index) => {
     if (index === 0) {
-      return [process(undefined)]
+      return [process(index)]
     }
-    return [...acc, acc[acc.length - 1].then(process)]
+    return [...accumulator, accumulator.at(-1)!.then(process)]
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }, [] as Promise<any>[])
 }

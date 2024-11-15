@@ -7,11 +7,16 @@ type Step = {
   work: Promise<unknown>
 }
 
-type StepProps = Step & {
+type StepProperties = Step & {
   isLast: boolean
 }
 
-export function StepComponent({ title, description, work, isLast }: StepProps) {
+export function StepComponent({
+  title,
+  description,
+  work,
+  isLast,
+}: StepProperties) {
   return (
     <li className={`ml-6 ${isLast ? '' : 'mb-10'}`}>
       <span className="absolute -left-4 flex size-8 items-center justify-center rounded-full bg-white ring-4 ring-white dark:bg-gray-700 dark:ring-gray-900">
