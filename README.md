@@ -65,7 +65,6 @@ For Next.js, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/N
 
 ## Know issues
 
-- [x] `eslint-plugin-vitest` can't updated, otherwise eslint will be broken. => `'plugin:prettier/recommended',`
 - Standalone building output can't run if copy it's folder, cause pnpm `symlink`, node_module cant resolve correctly. It can be avoided by installing the package with `node-linker=hoisted` in the pnpm configuration before standalone output.
 
 ## Refers
@@ -77,6 +76,66 @@ For Next.js, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/N
 ### Good article
 
 - [How to fetch data in React [2024]](https://www.robinwieruch.de/react-fetching-data/)
+
+## Cursor
+
+### Guideline
+
+1. Brainstorm first, code second
+
+Claude/o1 are your best friends here. You should create a whole document containing every single detail of your project.
+
+- core features
+- goals & objectives
+- tech stack & packages
+- project folder structure
+- database design
+- landing page components
+- color palette
+- copyrighting
+
+All this should be put into an instruction.md (name it however you want) so Cursor can index at any time.
+
+2. Get a `.cursorrules` file
+
+https://docs.cursor.com/context/rules-for-ai#cursorrules
+
+Take an example from:
+
+- https://cursor.directory/
+- https://github.com/PatrickJS/awesome-cursorrules
+
+3. Use `v0` for landing page
+
+Get your core features, color palette and components from your `instructions.md` file you got.
+
+Bonus tip is to use screenshots as reference from other landing pages just so v0 gets your idea.
+
+Use component libraries shadcn since v0 works great with it. or with MagicUI.
+
+Remember, you don’t have to get it perfect with v0.
+
+You only need something good enough you can take and edit later in cursor.
+
+4.  Chat vs Composer
+
+Use chat for smaller tasks and for explaining code/commands. Use it to ask questions and navigate your.
+
+Use composer for writing the code, tag your `instructions.md` inside the composer always and tell him to update it as the project progresses.
+
+Only ask composer to do one task at a time. Make it make the changes step by step, if you ask to it to edit multiple files it will hallucinate and you will lose control.
+
+Always verify the code is clean before approving the change.
+
+Save your claude credits for the composer and use gpt-4o-mini with chat.
+
+5. Tag your docs
+
+Copy the documentation for the framework you use.
+
+Go to Cursor Settings > Features > Docs
+
+Paste the links and use them inside chat/composer with `@Docs`
 
 ## Getting Started
 
