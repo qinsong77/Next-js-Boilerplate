@@ -16,163 +16,161 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 
-const projectData = [
+const orderData = [
   {
-    name: 'long name project 1',
-    total: 100,
-    ba: 10,
-    dev: 50,
-    qa: 30,
-    pm: 10,
-    internal: 80,
-    external: 20,
+    name: 'Long Order Name #1',
+    total: 2500,
+    food: 1000,
+    beverage: 800,
+    dessert: 500,
+    other: 200,
+    online: 1500,
+    offline: 1000,
   },
   {
-    name: 'project 2',
-    total: 150,
-    ba: 15,
-    dev: 75,
-    qa: 45,
-    pm: 15,
-    internal: 100,
-    external: 50,
+    name: 'Order #2',
+    total: 1800,
+    food: 800,
+    beverage: 600,
+    dessert: 300,
+    other: 100,
+    online: 1200,
+    offline: 600,
   },
   {
-    name: 'long name project 3',
-    total: 200,
-    ba: 20,
-    dev: 100,
-    qa: 60,
-    pm: 20,
-    internal: 150,
-    external: 50,
+    name: 'Very Long Order Name #3',
+    total: 3200,
+    food: 1500,
+    beverage: 900,
+    dessert: 600,
+    other: 200,
+    online: 2000,
+    offline: 1200,
   },
   {
-    name: 'project 4',
-    total: 120,
-    ba: 12,
-    dev: 60,
-    qa: 36,
-    pm: 12,
-    internal: 90,
-    external: 30,
+    name: 'Order #4',
+    total: 1900,
+    food: 900,
+    beverage: 500,
+    dessert: 400,
+    other: 100,
+    online: 1100,
+    offline: 800,
   },
   {
-    name: 'long name project 5',
-    total: 180,
-    ba: 18,
-    dev: 90,
-    qa: 54,
-    pm: 18,
-    internal: 120,
-    external: 60,
+    name: 'Long Order Name #5',
+    total: 2800,
+    food: 1200,
+    beverage: 800,
+    dessert: 600,
+    other: 200,
+    online: 1800,
+    offline: 1000,
   },
   {
-    name: 'project 6',
-    total: 90,
-    ba: 9,
-    dev: 45,
-    qa: 27,
-    pm: 9,
-    internal: 60,
-    external: 30,
+    name: 'Order #6',
+    total: 2100,
+    food: 1000,
+    beverage: 600,
+    dessert: 400,
+    other: 100,
+    online: 1300,
+    offline: 800,
   },
   {
-    name: 'very long name project 7',
-    total: 220,
-    ba: 22,
-    dev: 110,
-    qa: 66,
-    pm: 22,
-    internal: 170,
-    external: 50,
+    name: 'Very Long Order Name #7',
+    total: 3500,
+    food: 1600,
+    beverage: 1000,
+    dessert: 700,
+    other: 200,
+    online: 2200,
+    offline: 1300,
   },
   {
-    name: 'project 8',
-    total: 130,
-    ba: 13,
-    dev: 65,
-    qa: 39,
-    pm: 13,
-    internal: 100,
-    external: 30,
+    name: 'Order #8',
+    total: 2300,
+    food: 1100,
+    beverage: 700,
+    dessert: 400,
+    other: 100,
+    online: 1400,
+    offline: 900,
   },
   {
-    name: 'very long name project 9',
-    total: 170,
-    ba: 17,
-    dev: 85,
-    qa: 51,
-    pm: 17,
-    internal: 130,
-    external: 40,
+    name: 'Very Long Order Name #9',
+    total: 2900,
+    food: 1300,
+    beverage: 800,
+    dessert: 600,
+    other: 200,
+    online: 1800,
+    offline: 1100,
   },
   {
-    name: 'project 10',
-    total: 110,
-    ba: 11,
-    dev: 55,
-    qa: 33,
-    pm: 11,
-    internal: 80,
-    external: 30,
+    name: 'Order #10',
+    total: 2000,
+    food: 900,
+    beverage: 600,
+    dessert: 400,
+    other: 100,
+    online: 1200,
+    offline: 800,
   },
   {
-    name: 'project 11',
-    total: 110,
-    ba: 11,
-    dev: 55,
-    qa: 33,
-    pm: 11,
-    internal: 80,
-    external: 30,
+    name: 'Order #11',
+    total: 2400,
+    food: 1100,
+    beverage: 700,
+    dessert: 500,
+    other: 100,
+    online: 1500,
+    offline: 900,
   },
 ]
 
 export function HeaderFixedScrollTable() {
   return (
     <ScrollArea className="h-[400px] rounded-md border">
-      {/*<Table wrapperClassName="h-[400px] overflow-auto relative">*/}
       <Table className="table-fixed text-center">
         <TableHeader className="sticky top-0 z-10 bg-secondary">
-          {/*<TableHeader>*/}
           <TableRow className="border-none">
             <TableHead
               className="w-1/5 text-center"
               rowSpan={2}
             >
-              项目
+              Order
             </TableHead>
             <TableHead
               className="text-center"
               rowSpan={2}
             >
-              总数
+              Total
             </TableHead>
             <TableHead
               className="text-center"
               colSpan={4}
             >
-              角色
+              Category
             </TableHead>
             <TableHead
               className="text-center"
               colSpan={2}
             >
-              归属
+              Channel
             </TableHead>
           </TableRow>
           <TableRow className="border-none">
-            <TableHead className="text-center">BA</TableHead>
-            <TableHead className="text-center">DEV</TableHead>
-            <TableHead className="text-center">QA</TableHead>
-            <TableHead className="text-center">PM</TableHead>
-            <TableHead className="text-center">内</TableHead>
-            <TableHead className="text-center">外</TableHead>
+            <TableHead className="text-center">Food</TableHead>
+            <TableHead className="text-center">Beverage</TableHead>
+            <TableHead className="text-center">Dessert</TableHead>
+            <TableHead className="text-center">Other</TableHead>
+            <TableHead className="text-center">Online</TableHead>
+            <TableHead className="text-center">Offline</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {projectData.map((project, index) => (
+          {orderData.map((order, index) => (
             <TableRow
               key={index}
               className="h-12"
@@ -181,21 +179,21 @@ export function HeaderFixedScrollTable() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <span className="block truncate">{project.name}</span>
+                      <span className="block truncate">{order.name}</span>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>{project.name}</p>
+                      <p>{order.name}</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
               </TableCell>
-              <TableCell className="">{project.total}</TableCell>
-              <TableCell className="">{project.ba}</TableCell>
-              <TableCell className="">{project.dev}</TableCell>
-              <TableCell className="">{project.qa}</TableCell>
-              <TableCell className="">{project.pm}</TableCell>
-              <TableCell className="">{project.internal}</TableCell>
-              <TableCell className="">{project.external}</TableCell>
+              <TableCell>{order.total}</TableCell>
+              <TableCell>{order.food}</TableCell>
+              <TableCell>{order.beverage}</TableCell>
+              <TableCell>{order.dessert}</TableCell>
+              <TableCell>{order.other}</TableCell>
+              <TableCell>{order.online}</TableCell>
+              <TableCell>{order.offline}</TableCell>
             </TableRow>
           ))}
         </TableBody>

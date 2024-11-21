@@ -1,0 +1,275 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`[component]-DataTable > renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class=""
+  >
+    <div
+      class="relative overflow-hidden border-b"
+      dir="ltr"
+      style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;"
+    >
+      <style>
+        [data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}
+      </style>
+      <div
+        class="h-full w-full rounded-[inherit]"
+        data-radix-scroll-area-viewport=""
+        style="overflow-x: scroll; overflow-y: scroll;"
+      >
+        <div
+          style="min-width: 100%; display: table;"
+        >
+          <table
+            class="caption-bottom text-sm w-full table-auto text-center"
+          >
+            <thead
+              class="[&_tr]:border-b sticky top-0 z-10 bg-secondary"
+            >
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted border-none"
+              >
+                <th
+                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
+                  colspan="1"
+                >
+                  <div
+                    class="flex items-center justify-center space-x-1.5"
+                  >
+                    <div
+                      class="w-full truncate"
+                    >
+                      Name
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
+                        data-state="closed"
+                      >
+                        <svg
+                          class="lucide lucide-chevron-up size-3"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="m18 15-6-6-6 6"
+                          />
+                        </svg>
+                        <span
+                          class="sr-only"
+                        >
+                          升序排序
+                        </span>
+                      </button>
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
+                        data-state="closed"
+                      >
+                        <svg
+                          class="lucide lucide-chevron-down size-3"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="m6 9 6 6 6-6"
+                          />
+                        </svg>
+                        <span
+                          class="sr-only"
+                        >
+                          降序排序
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </th>
+                <th
+                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
+                  colspan="1"
+                >
+                  <div
+                    class="w-full text-center"
+                  >
+                    Email
+                  </div>
+                </th>
+                <th
+                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center"
+                  colspan="1"
+                >
+                  <div
+                    class="flex items-center justify-center space-x-1.5"
+                  >
+                    <div
+                      class="w-full truncate"
+                    >
+                      Role
+                    </div>
+                    <div
+                      class="flex flex-col"
+                    >
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
+                        data-state="closed"
+                      >
+                        <svg
+                          class="lucide lucide-chevron-up size-3"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="m18 15-6-6-6 6"
+                          />
+                        </svg>
+                        <span
+                          class="sr-only"
+                        >
+                          升序排序
+                        </span>
+                      </button>
+                      <button
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
+                        data-state="closed"
+                      >
+                        <svg
+                          class="lucide lucide-chevron-down size-3"
+                          fill="none"
+                          height="24"
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="m6 9 6 6 6-6"
+                          />
+                        </svg>
+                        <span
+                          class="sr-only"
+                        >
+                          降序排序
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="[&_tr:last-child]:border-0"
+            >
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  John Doe
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  john@example.com
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  Admin
+                </td>
+              </tr>
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  Jane Smith
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  jane@example.com
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  User
+                </td>
+              </tr>
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  Bob Johnson
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  bob@example.com
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  Manager
+                </td>
+              </tr>
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  Alice Brown
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  alice@example.com
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                >
+                  User
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
