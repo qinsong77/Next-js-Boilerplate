@@ -3,7 +3,7 @@
 exports[`[component]-DataTable > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class=""
+    class="grid"
   >
     <div
       class="relative overflow-hidden border-b"

@@ -1,5 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [],
+  "globalDependencies": [],
   "tasks": {
     "type-check": {
       "inputs": ["**/*.{ts,tsx}"]
@@ -23,6 +25,10 @@
     },
     "e2e": {
       "inputs": ["e2e/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

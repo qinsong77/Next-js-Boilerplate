@@ -3,7 +3,7 @@ import { startTransition, useState } from 'react'
 
 import { useCustomerInterval } from '@/hooks/client'
 
-const orgText = 'React & Next.js 14'
+const orgText = 'React & Next.js 15'
 export const TextSplitter = () => {
   const [count, setCount] = useState(0)
   const pausedTimeReference = useCustomerInterval(() => {

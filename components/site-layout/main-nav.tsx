@@ -54,7 +54,7 @@ export function MainNav() {
           height={24}
         />
         <span className="ml-2 text-sm font-bold sm:text-base">
-          14 Boilerplate
+          15 Boilerplate
         </span>
       </Link>
 

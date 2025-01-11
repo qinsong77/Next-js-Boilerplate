@@ -46,7 +46,6 @@ async function getUserInfo(): Promise<Response> {
   return await response.json()
 }
 const Page = async () => {
-  // eslint-disable-next-line unicorn/no-await-expression-member
   const data = (await getUserInfo())?.results?.[0] ?? {}
 
   return (

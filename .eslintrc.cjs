@@ -8,7 +8,7 @@ module.exports = {
   extends: [
     // 'next/core-web-vitals',
     'next',
-    'plugin:unicorn/recommended',
+    // 'plugin:unicorn/recommended',
     'next/typescript', // or use 'plugin:@typescript-eslint/recommended-type-checked'
     'plugin:tailwindcss/recommended',
     'plugin:prettier/recommended',
@@ -21,8 +21,8 @@ module.exports = {
 
     // 'react-compiler/react-compiler': 'error',
 
-    'unicorn/no-array-reduce': 'off',
-    'unicorn/no-null': 'off',
+    // 'unicorn/no-array-reduce': 'off',
+    // 'unicorn/no-null': 'off',
   },
   settings: {
     tailwindcss: {
