@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org/) 15 Boilerplate project base on [`create
 
 For Next.js 14, check this: [Next.js 14 Boilerplate](https://github.com/qinsong77/Next-js-Boilerplate/tree/nextjs14-v2)
 
+For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](https://github.com/qinsong77/Next-js-Boilerplate/tree/nextjs15.1.4-tailwindcss-v3)
+
 ## Features
 
 - pnpm
