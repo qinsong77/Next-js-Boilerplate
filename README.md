@@ -12,10 +12,11 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 - chore
   - husky
   - lint-stage
+  - eslint v9
   - prettier
-    - use [prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports) ? current is `eslint-plugin-simple-import-sort`
+    - use [prettier-plugin-sort-imports](https://github.com/trivago/prettier-plugin-sort-imports)
   - commitlint
-- css: tailwindcss
+- css: tailwindcss v4
 - UI Library: [shadcn/ui](https://ui.shadcn.com/)
 - bundle-analyzer: [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
 - logger: [pino](https://github.com/pinojs/pino) && development pretty logging [pino-pretty](https://github.com/pinojs/pino-pretty)
@@ -49,7 +50,7 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 - in [table pagination demo](./app/pagination-demo/page.tsx), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
   - Fixed by using [useTransition](https://19.react.dev/reference/react/useTransition), refer: [Preventing unwanted loading indicators ](https://19.react.dev/reference/react/useTransition#preventing-unwanted-loading-indicators)
 - ~~Remove `"react-is": "19.0.0-rc-1631855f-20241023"` in `package.json` for support React 19~~
-- eslint v9
+- ~~eslint v9~~
 
 ## Best Practices
 
