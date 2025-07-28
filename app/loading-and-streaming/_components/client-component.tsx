@@ -20,7 +20,7 @@ export const ClientComponent = ({
         description: 'val is: ' + value,
       })
     }
-  }, [toast, value])
+  }, [value])
 
   return (
     <div className="space-y-4">
