@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { TextSplitter } from '@/components/text-spliter'
 import { Separator } from '@/components/ui/separator'
+
 import { logger } from '@/lib/shared'
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
   return (
     <div className="space-y-4 md:space-y-8 lg:space-y-12">
       <div className="flex flex-row flex-wrap justify-center">
-        <div className="lg:px-18 relative min-h-80 w-full shrink self-center sm:w-9/12 md:w-1/2">
+        <div className="relative min-h-80 w-full shrink self-center sm:w-9/12 md:w-1/2 lg:px-18">
           <Image
             src="/hero.svg"
             alt="hero Logo"
@@ -25,25 +26,25 @@ export default function Home() {
             <h3 className="text-xl font-bold">Check the demos: </h3>
             <div className="flex flex-row flex-wrap">
               <Link
-                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
                 href="/loading-and-streaming"
               >
                 Loading and streaming
               </Link>
               <Link
-                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
                 href="/dashboard"
               >
                 dashboard
               </Link>
               <Link
-                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
                 href="/todo"
               >
                 Todo demo
               </Link>
               <Link
-                className="mr-2 mt-4 inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
                 href="/demos"
               >
                 demos
@@ -54,7 +55,7 @@ export default function Home() {
       </div>
       <Separator />
       <div className="grid grid-cols-1 justify-between gap-10 md:grid-cols-2">
-        <p className="flex max-w-96 justify-center border-b border-gray-300 bg-gray-200 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:static md:w-auto md:rounded-xl md:p-4 md:dark:bg-zinc-800/30 lg:border">
+        <p className="flex max-w-96 justify-center border-b border-gray-300 bg-gray-200 bg-gradient-to-b from-zinc-200 pt-8 pb-6 backdrop-blur-2xl md:static md:w-auto md:rounded-xl md:p-4 lg:border dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:dark:bg-zinc-800/30">
           Get started by editing&nbsp;
           <code className="font-mono font-bold">app/page.tsx</code>
         </p>
@@ -158,7 +159,7 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className={`m-0 text-balance text-sm opacity-50`}>
+          <p className={`m-0 text-sm text-balance opacity-50`}>
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>

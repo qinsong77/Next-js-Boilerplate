@@ -35,7 +35,7 @@ export function DataTableRowActions<TData>({
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="flex size-8 p-0 data-[state=open]:bg-muted"
+          className="data-[state=open]:bg-muted flex size-8 p-0"
         >
           <AlignCenterHorizontal className="size-4" />
           <span className="sr-only">Open menu</span>

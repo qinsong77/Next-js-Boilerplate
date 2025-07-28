@@ -1,5 +1,6 @@
 // https://github.com/vercel/next.js/discussions/47227
 import { Counter } from '@/components/counter'
+
 import { logger } from '@/lib/shared'
 
 import { DropDown } from './_components/dropdown'

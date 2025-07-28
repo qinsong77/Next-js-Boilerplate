@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { siteConfig } from '@/config/site'
+
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -12,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { siteConfig } from '@/config/site'
+
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -64,7 +66,7 @@ export function MainNav() {
             key={item.href}
             href={item.href}
             className={cn(
-              'text-xs transition-colors hover:text-foreground/80 sm:text-sm',
+              'hover:text-foreground/80 text-xs transition-colors sm:text-sm',
               pathname?.startsWith(item.href)
                 ? 'text-foreground'
                 : 'text-foreground/60',

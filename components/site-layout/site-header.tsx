@@ -1,8 +1,10 @@
 import { GithubIcon, RssIcon } from 'lucide-react'
 import Link from 'next/link'
 
-import { buttonVariants } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
+
+import { buttonVariants } from '@/components/ui/button'
+
 import { cn } from '@/lib/utils'
 
 import { MainNav } from './main-nav'
@@ -10,7 +12,7 @@ import { ThemeToggle } from './theme-toggle'
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 flex min-h-14 border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex min-h-14 border-b backdrop-blur">
       <MainNav />
       <nav className="flex flex-1 items-center justify-end space-x-2">
         <Link

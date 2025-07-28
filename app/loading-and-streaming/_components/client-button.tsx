@@ -1,7 +1,8 @@
 'use client'
-import { useRouter } from 'next/navigation'
 
 import refresh from '@/app/loading-and-streaming/action'
+import { useRouter } from 'next/navigation'
+
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 

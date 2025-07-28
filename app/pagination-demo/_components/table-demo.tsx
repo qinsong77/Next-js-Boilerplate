@@ -1,7 +1,14 @@
 // refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
 'use client'
+
+// todo how to show pagination component when start pagination on client
+import { columns } from '@/app/pagination-demo/_components/columns'
+import { getTaskList } from '@/app/pagination-demo/actions'
 import {
   ColumnFiltersState,
+  PaginationState,
+  SortingState,
+  VisibilityState,
   flexRender,
   getCoreRowModel,
   getFacetedRowModel,
@@ -9,16 +16,10 @@ import {
   getFilteredRowModel,
   // getPaginationRowModel,
   getSortedRowModel,
-  PaginationState,
-  SortingState,
   useReactTable,
-  VisibilityState,
 } from '@tanstack/react-table'
 import React, { use, useState, useTransition } from 'react'
 
-// todo how to show pagination component when start pagination on client
-import { columns } from '@/app/pagination-demo/_components/columns'
-import { getTaskList } from '@/app/pagination-demo/actions'
 import {
   Table,
   TableBody,
@@ -27,10 +28,19 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+
 import { logger } from '@/lib/shared'
 
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
+
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
+
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
+
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
+
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
 
 type TableDemoProperties = {
   initGetTaskListPromise: ReturnType<typeof getTaskList>
@@ -135,7 +145,7 @@ export function TableDemo({ initGetTaskListPromise }: TableDemoProperties) {
           <TableBody>
             {isPending ? (
               <div className="flex size-full min-h-32 items-center justify-center">
-                <p className="text-xs text-secondary-foreground">loading...</p>
+                <p className="text-secondary-foreground text-xs">loading...</p>
               </div>
             ) : table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (

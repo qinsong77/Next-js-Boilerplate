@@ -1,12 +1,14 @@
-import '../styles/globals.css'
-
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
+import { siteConfig } from '@/config/site'
+
 import { Providers } from '@/components/providers'
 import { SiteFooter, SiteHeader } from '@/components/site-layout'
-import { siteConfig } from '@/config/site'
+
 import { cn } from '@/lib/utils'
+
+import '../styles/globals.css'
 
 const fontSans = FontSans({
   subsets: ['latin'],

@@ -2,10 +2,10 @@
 
 import type { Column, ColumnDef } from '@tanstack/react-table'
 import {
+  type SortingState,
   flexRender,
   getCoreRowModel,
   getSortedRowModel,
-  type SortingState,
   useReactTable,
 } from '@tanstack/react-table'
 import { Ban, ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
@@ -28,6 +28,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+
 import { cn } from '@/lib/utils'
 
 function isNumber(value: unknown): value is number {

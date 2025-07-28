@@ -1,5 +1,4 @@
 // https://github.com/vercel/app-playground-api/blob/main/app/api/reviews/route.ts
-
 import { logger } from '@/lib/shared'
 
 import type { Review } from './type'

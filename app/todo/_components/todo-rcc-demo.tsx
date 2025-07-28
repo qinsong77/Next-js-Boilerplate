@@ -1,5 +1,4 @@
 // https://stackoverflow.com/questions/75124513/update-server-component-after-data-has-been-changed-by-client-component-in-next
-
 import { logger } from '@/lib/shared'
 
 import type { TODO } from '../../api/todo/type'

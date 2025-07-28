@@ -7,6 +7,22 @@
   "bracketSpacing": true,
   "singleAttributePerLine": true,
   "endOfLine": "lf",
-  "plugins": ["prettier-plugin-tailwindcss"],
-  "tailwindFunctions": ["clsx", "cn", "cva"]
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "tailwindFunctions": ["clsx", "cn", "cva"],
+  "importOrder": [
+    "<THIRD_PARTY_MODULES>",
+    "^@core/(.*)$",
+    "^@/feature/(.*)$",
+    "^@/config/(.*)$",
+    "^@/components/(.*)$",
+    "^@/hooks/(.*)$",
+    "^@/lib/(.*)$",
+    "^@/styles/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

@@ -1,8 +1,8 @@
-import { Suspense } from 'react'
-
 import { TableLoading } from '@/app/pagination-demo/_components/table-loading'
 import { getTaskList } from '@/app/pagination-demo/actions'
 import { TableExample } from '@/app/pagination-demo/table-example'
+import { Suspense } from 'react'
+
 import { Separator } from '@/components/ui/separator'
 
 import { HeaderFixedScrollTable } from './_components/header-fixed-scroll-table'

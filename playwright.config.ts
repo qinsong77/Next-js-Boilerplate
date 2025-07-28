@@ -1,7 +1,6 @@
+import { defineConfig, devices } from '@playwright/test'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-
-import { defineConfig, devices } from '@playwright/test'
 
 /**
  * Read environment variables from file.

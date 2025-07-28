@@ -1,4 +1,5 @@
 'use client'
+
 import { startTransition, useState } from 'react'
 
 import { useCustomerInterval } from '@/hooks/client'
@@ -21,7 +22,7 @@ export const TextSplitter = () => {
     })
   }, 100)
   return (
-    <h1 className="min-h-28 text-xl font-bold leading-relaxed md:text-2xl xl:text-4xl">
+    <h1 className="min-h-28 text-xl leading-relaxed font-bold md:text-2xl xl:text-4xl">
       This is a Next.js Boilerplate
       <br />
       Base on <span>{orgText.slice(0, count)}</span>

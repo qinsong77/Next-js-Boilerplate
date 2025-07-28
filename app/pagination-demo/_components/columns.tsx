@@ -1,8 +1,8 @@
 'use client'
 
+import { Task } from '@/app/pagination-demo/_data/schema'
 import { ColumnDef } from '@tanstack/react-table'
 
-import { Task } from '@/app/pagination-demo/_data/schema'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 
@@ -88,7 +88,7 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <div className="flex w-[100px] items-center">
           {status.icon && (
-            <status.icon className="mr-2 size-4 text-muted-foreground" />
+            <status.icon className="text-muted-foreground mr-2 size-4" />
           )}
           <span>{status.label}</span>
         </div>
@@ -118,7 +118,7 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <div className="flex items-center">
           {priority.icon && (
-            <priority.icon className="mr-2 size-4 text-muted-foreground" />
+            <priority.icon className="text-muted-foreground mr-2 size-4" />
           )}
           <span>{priority.label}</span>
         </div>

@@ -133,7 +133,7 @@ export function HeaderFixedScrollTable() {
   return (
     <ScrollArea className="h-[400px] rounded-md border">
       <Table className="table-fixed text-center">
-        <TableHeader className="sticky top-0 z-10 bg-secondary">
+        <TableHeader className="bg-secondary sticky top-0 z-10">
           <TableRow className="border-none">
             <TableHead
               className="w-1/5 text-center"

@@ -42,7 +42,7 @@ export default function Todo(todo: TODO) {
         />
         <label
           htmlFor={todo.id}
-          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         >
           {todo.title}
         </label>

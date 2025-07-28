@@ -1,5 +1,4 @@
 // https://www.nico.fyi/blog/next-js-sequential-tasks-progress-stepper-with-rsc-and-suspense
-
 import { ExternalLink } from '@/components/site-layout'
 
 import { StepComponent } from './_components/step-component'

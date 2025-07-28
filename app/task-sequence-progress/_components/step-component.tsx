@@ -57,7 +57,7 @@ const Title = ({
 }) => {
   return (
     <h3
-      className={`font-medium leading-tight text-green-500 dark:text-green-400 ${disabled ? 'text-gray-500' : ''}`}
+      className={`leading-tight font-medium text-green-500 dark:text-green-400 ${disabled ? 'text-gray-500' : ''}`}
     >
       {children}
     </h3>
