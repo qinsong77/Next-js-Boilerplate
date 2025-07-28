@@ -14,259 +14,296 @@ exports[`[component]-DataTable > renders correctly 1`] = `
         [data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}
       </style>
       <div
-        class="h-full w-full rounded-[inherit]"
+        class="focus-visible:ring-ring/50 size-full rounded-[inherit] transition-[color,box-shadow] outline-none focus-visible:ring-[3px] focus-visible:outline-1"
         data-radix-scroll-area-viewport=""
+        data-slot="scroll-area-viewport"
         style="overflow-x: scroll; overflow-y: scroll;"
       >
         <div
           style="min-width: 100%; display: table;"
         >
-          <table
-            class="caption-bottom text-sm w-full table-auto text-center"
+          <div
+            class="relative w-full overflow-x-auto"
+            data-slot="table-container"
           >
-            <thead
-              class="[&_tr]:border-b sticky top-0 z-10 bg-secondary"
+            <table
+              class="caption-bottom text-sm w-full table-auto text-center"
+              data-slot="table"
             >
-              <tr
-                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted border-none"
+              <thead
+                class="[&_tr]:border-b bg-secondary sticky top-0 z-10"
+                data-slot="table-header"
               >
-                <th
-                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
-                  colspan="1"
+                <tr
+                  class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors border-none"
+                  data-slot="table-row"
                 >
-                  <div
-                    class="flex items-center justify-center space-x-1.5"
+                  <th
+                    class="text-foreground h-10 px-2 align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
+                    colspan="1"
+                    data-slot="table-head"
                   >
                     <div
-                      class="w-full truncate"
+                      class="flex items-center justify-center space-x-1.5"
                     >
-                      Name
-                    </div>
-                    <div
-                      class="flex flex-col"
-                    >
-                      <button
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
-                        data-state="closed"
+                      <div
+                        class="w-full truncate"
                       >
-                        <svg
-                          class="lucide lucide-chevron-up size-3"
-                          fill="none"
-                          height="24"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="m18 15-6-6-6 6"
-                          />
-                        </svg>
-                        <span
-                          class="sr-only"
-                        >
-                          升序排序
-                        </span>
-                      </button>
-                      <button
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
-                        data-state="closed"
+                        Name
+                      </div>
+                      <div
+                        class="flex flex-col"
                       >
-                        <svg
-                          class="lucide lucide-chevron-down size-3"
-                          fill="none"
-                          height="24"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <button
+                          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[>svg]:px-2.5 h-3 w-4 p-0"
+                          data-slot="tooltip-trigger"
+                          data-state="closed"
                         >
-                          <path
-                            d="m6 9 6 6 6-6"
-                          />
-                        </svg>
-                        <span
-                          class="sr-only"
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-chevron-up size-3"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m18 15-6-6-6 6"
+                            />
+                          </svg>
+                          <span
+                            class="sr-only"
+                          >
+                            升序排序
+                          </span>
+                        </button>
+                        <button
+                          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[>svg]:px-2.5 h-3 w-4 p-0"
+                          data-slot="tooltip-trigger"
+                          data-state="closed"
                         >
-                          降序排序
-                        </span>
-                      </button>
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-chevron-down size-3"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m6 9 6 6 6-6"
+                            />
+                          </svg>
+                          <span
+                            class="sr-only"
+                          >
+                            降序排序
+                          </span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </th>
-                <th
-                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
-                  colspan="1"
-                >
-                  <div
-                    class="w-full text-center"
-                  >
-                    Email
-                  </div>
-                </th>
-                <th
-                  class="h-12 px-4 align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 relative text-center"
-                  colspan="1"
-                >
-                  <div
-                    class="flex items-center justify-center space-x-1.5"
+                  </th>
+                  <th
+                    class="text-foreground h-10 px-2 align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] relative text-center before:absolute before:inset-y-1/4 before:right-0 before:w-px before:bg-gray-300 before:content-[""]"
+                    colspan="1"
+                    data-slot="table-head"
                   >
                     <div
-                      class="w-full truncate"
+                      class="w-full text-center"
                     >
-                      Role
+                      Email
                     </div>
+                  </th>
+                  <th
+                    class="text-foreground h-10 px-2 align-middle font-medium whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] relative text-center"
+                    colspan="1"
+                    data-slot="table-head"
+                  >
                     <div
-                      class="flex flex-col"
+                      class="flex items-center justify-center space-x-1.5"
                     >
-                      <button
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
-                        data-state="closed"
+                      <div
+                        class="w-full truncate"
                       >
-                        <svg
-                          class="lucide lucide-chevron-up size-3"
-                          fill="none"
-                          height="24"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="m18 15-6-6-6 6"
-                          />
-                        </svg>
-                        <span
-                          class="sr-only"
-                        >
-                          升序排序
-                        </span>
-                      </button>
-                      <button
-                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-md h-3 w-4 p-0"
-                        data-state="closed"
+                        Role
+                      </div>
+                      <div
+                        class="flex flex-col"
                       >
-                        <svg
-                          class="lucide lucide-chevron-down size-3"
-                          fill="none"
-                          height="24"
-                          stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          viewBox="0 0 24 24"
-                          width="24"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <button
+                          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[>svg]:px-2.5 h-3 w-4 p-0"
+                          data-slot="tooltip-trigger"
+                          data-state="closed"
                         >
-                          <path
-                            d="m6 9 6 6 6-6"
-                          />
-                        </svg>
-                        <span
-                          class="sr-only"
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-chevron-up size-3"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m18 15-6-6-6 6"
+                            />
+                          </svg>
+                          <span
+                            class="sr-only"
+                          >
+                            升序排序
+                          </span>
+                        </button>
+                        <button
+                          class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 rounded-md gap-1.5 has-[>svg]:px-2.5 h-3 w-4 p-0"
+                          data-slot="tooltip-trigger"
+                          data-state="closed"
                         >
-                          降序排序
-                        </span>
-                      </button>
+                          <svg
+                            aria-hidden="true"
+                            class="lucide lucide-chevron-down size-3"
+                            fill="none"
+                            height="24"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="m6 9 6 6 6-6"
+                            />
+                          </svg>
+                          <span
+                            class="sr-only"
+                          >
+                            降序排序
+                          </span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody
-              class="[&_tr:last-child]:border-0"
-            >
-              <tr
-                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
-                data-state="false"
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="[&_tr:last-child]:border-0"
+                data-slot="table-body"
               >
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                <tr
+                  class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors h-12"
+                  data-slot="table-row"
+                  data-state="false"
                 >
-                  John Doe
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    John Doe
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    john@example.com
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    Admin
+                  </td>
+                </tr>
+                <tr
+                  class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors h-12"
+                  data-slot="table-row"
+                  data-state="false"
                 >
-                  john@example.com
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    Jane Smith
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    jane@example.com
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    User
+                  </td>
+                </tr>
+                <tr
+                  class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors h-12"
+                  data-slot="table-row"
+                  data-state="false"
                 >
-                  Admin
-                </td>
-              </tr>
-              <tr
-                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
-                data-state="false"
-              >
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    Bob Johnson
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    bob@example.com
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    Manager
+                  </td>
+                </tr>
+                <tr
+                  class="hover:bg-muted/50 data-[state=selected]:bg-muted border-b transition-colors h-12"
+                  data-slot="table-row"
+                  data-state="false"
                 >
-                  Jane Smith
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  jane@example.com
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  User
-                </td>
-              </tr>
-              <tr
-                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
-                data-state="false"
-              >
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  Bob Johnson
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  bob@example.com
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  Manager
-                </td>
-              </tr>
-              <tr
-                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted h-12"
-                data-state="false"
-              >
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  Alice Brown
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  alice@example.com
-                </td>
-                <td
-                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-center"
-                >
-                  User
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    Alice Brown
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    alice@example.com
+                  </td>
+                  <td
+                    class="p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] text-center"
+                    data-slot="table-cell"
+                  >
+                    User
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
