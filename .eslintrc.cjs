@@ -10,8 +10,8 @@ module.exports = {
     'next',
     // 'plugin:unicorn/recommended',
     'next/typescript', // or use 'plugin:@typescript-eslint/recommended-type-checked'
-    'plugin:tailwindcss/recommended',
-    'plugin:prettier/recommended',
+    // 'plugin:tailwindcss/recommended',
+    // 'plugin:prettier/recommended',
   ],
   rules: {
     'simple-import-sort/imports': 'error',
@@ -23,12 +23,6 @@ module.exports = {
 
     // 'unicorn/no-array-reduce': 'off',
     // 'unicorn/no-null': 'off',
-  },
-  settings: {
-    tailwindcss: {
-      callees: ['cn', 'cva'],
-      config: 'tailwind.config.js',
-    },
   },
   overrides: [
     {

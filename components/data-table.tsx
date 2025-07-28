@@ -168,7 +168,7 @@ export function DataTable<TData, TValue>({
         style={{
           ...(isNumber(maxHeight) ? { maxHeight } : {}),
         }}
-        className={cn('border-b')}
+        className={cn('border-b, grid w-full')}
       >
         <Table
           className={cn('w-full table-auto text-center', className)}
@@ -176,7 +176,7 @@ export function DataTable<TData, TValue>({
             ...(isNumber(minWidth) ? { minWidth } : {}),
           }}
         >
-          <TableHeader className="sticky top-0 z-10 bg-secondary">
+          <TableHeader className="bg-secondary sticky top-0 z-10">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
                 key={headerGroup.id}

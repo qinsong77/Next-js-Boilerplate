@@ -1,11 +1,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import { ToastAction } from '@/components/ui/toast'
-import { useToast } from '@/hooks/use-toast'
 
 export const ClientComponent = ({
   children,
@@ -15,11 +14,9 @@ export const ClientComponent = ({
   rsc?: React.ReactNode
 }) => {
   const [value, setValue] = useState(0)
-  const { toast } = useToast()
   useEffect(() => {
     if (value === 2) {
-      toast({
-        title: 'clicked, condition RSC render',
+      toast.message('clicked, condition RSC render', {
         description: 'val is: ' + value,
       })
     }
@@ -41,11 +38,9 @@ export const ClientComponent = ({
         <Button
           variant="outline"
           onClick={() => {
-            toast({
-              title: 'Scheduled: Catch up ',
-              description: 'Friday, February 10, 2023 at 5:57 PM',
+            toast('My action toast', {
               action: (
-                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+                <Button onClick={() => console.log('Action!')}>Action</Button>
               ),
             })
           }}
