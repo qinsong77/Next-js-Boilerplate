@@ -16,18 +16,17 @@ export const ClientComponent = ({
   const [value, setValue] = useState(0)
   useEffect(() => {
     if (value === 2) {
-      toast.message('clicked, condition RSC render', {
+      toast.success('clicked, condition RSC render', {
         description: 'val is: ' + value,
       })
     }
   }, [value])
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center space-x-4">
-        <p>Counter: {value}</p>
+    <div className="space-y-6 rounded border bg-white p-4 shadow">
+      <div className="flex items-center gap-4">
+        <p className="font-medium">Counter: {value}</p>
         <Button
-          className="mr-2"
           onClick={() => {
             setValue((previousState) => previousState + 1)
           }}
@@ -48,10 +47,14 @@ export const ClientComponent = ({
           Add to calendar
         </Button>
       </div>
-      <h2>Client component nested rsc</h2>
-      {children}
-      <h2>Client component nested rsc, condition render</h2>
-      {value > 2 && rsc}
+      <h2 className="mt-4 text-base font-semibold">
+        Client component nested rsc
+      </h2>
+      <div className="pl-2">{children}</div>
+      <h2 className="mt-4 text-base font-semibold">
+        Client component nested rsc, condition render:
+      </h2>
+      <div className="pl-2">{value >= 2 && rsc}</div>
     </div>
   )
 }

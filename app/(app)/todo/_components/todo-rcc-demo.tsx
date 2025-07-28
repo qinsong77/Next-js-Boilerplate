@@ -1,7 +1,8 @@
 // https://stackoverflow.com/questions/75124513/update-server-component-after-data-has-been-changed-by-client-component-in-next
+import type { TODO } from '@/app/api/todo/type'
+
 import { logger } from '@/lib/shared'
 
-import type { TODO } from '../../api/todo/type'
 import { AddTodo } from './add-todo'
 import Todo from './todo'
 

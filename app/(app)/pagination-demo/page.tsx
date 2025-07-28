@@ -1,6 +1,6 @@
-import { TableLoading } from '@/app/pagination-demo/_components/table-loading'
-import { getTaskList } from '@/app/pagination-demo/actions'
-import { TableExample } from '@/app/pagination-demo/table-example'
+import { TableLoading } from '@/app/(app)/pagination-demo/_components/table-loading'
+import { getTaskList } from '@/app/(app)/pagination-demo/actions'
+import { TableExample } from '@/app/(app)/pagination-demo/table-example'
 import { Suspense } from 'react'
 
 import { Separator } from '@/components/ui/separator'

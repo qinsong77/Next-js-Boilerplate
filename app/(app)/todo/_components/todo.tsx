@@ -5,7 +5,7 @@ import { useState, useTransition } from 'react'
 
 import { Checkbox } from '@/components/ui/checkbox'
 
-import type { TODO } from '../../api/todo/type'
+import type { TODO } from '../../../api/todo/type'
 
 export default function Todo(todo: TODO) {
   const router = useRouter()

@@ -2,8 +2,8 @@
 'use client'
 
 // todo how to show pagination component when start pagination on client
-import { columns } from '@/app/pagination-demo/_components/columns'
-import { getTaskList } from '@/app/pagination-demo/actions'
+import { columns } from '@/app/(app)/pagination-demo/_components/columns'
+import { getTaskList } from '@/app/(app)/pagination-demo/actions'
 import {
   ColumnFiltersState,
   PaginationState,
@@ -33,6 +33,8 @@ import { logger } from '@/lib/shared'
 
 import { DataTablePagination } from './data-table-pagination'
 import { DataTableToolbar } from './data-table-toolbar'
+
+// refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
 
 // refer: https://github.com/shadcn-ui/ui/blob/main/apps/www/app/(app)/examples/tasks/components/data-table.tsx
 

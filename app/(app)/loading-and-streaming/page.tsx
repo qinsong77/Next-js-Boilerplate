@@ -32,10 +32,10 @@ type Response = {
   }[]
 }
 async function getUserInfo(): Promise<Response> {
-  logger.info('getUserInfo starting ')
+  logger.info('Critical data: getUserInfo starting ')
   const response = await fetch('https://randomuser.me/api/')
   await sleep(1000)
-  logger.info(response, 'getUserInfo done')
+  logger.info(response, 'Critical data: getUserInfo done')
 
   if (!response.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -46,29 +46,34 @@ async function getUserInfo(): Promise<Response> {
 
   return await response.json()
 }
-const Page = async () => {
+export default async function HomePage() {
   const data = (await getUserInfo())?.results?.[0] ?? {}
 
   return (
     <div className="flex flex-col space-y-8">
-      <div className="h-30 rounded border p-8">
+      <div className="rounded border p-8">
         <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
           Show{' '}
           <ExternalLink href="https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming">
             loading UI and streaming page
           </ExternalLink>
         </h2>
-        <p>email: {data.email}</p>
-        <p>phone: {data.phone}</p>
-        <p>gender: {data.gender}</p>
+        <Separator className="my-3" />
+        <h3 className="text-xl -tracking-normal">
+          This is critical data, which will block the whole page, fallback to
+          layout loading.
+        </h3>
+        <p className="text-gray-700">email: {data.email}</p>
+        <p className="text-gray-700">phone: {data.phone}</p>
+        <p className="text-gray-700">gender: {data.gender}</p>
       </div>
-      <section className="flex flex-col space-y-2 md:flex-row md:space-x-2">
+      <section className="flex flex-col gap-2 md:flex-row md:gap-2">
         <Suspense fallback={<SideBarLoading />}>
-          <div className="flex flex-col space-y-3 md:w-4/12">
+          <div className="flex flex-col gap-3 md:basis-1/3">
             <PromptActivity />
           </div>
         </Suspense>
-        <div className="flex flex-col space-y-3 md:w-8/12">
+        <div className="flex flex-col gap-3 md:basis-2/3">
           <EggGroup />
         </div>
       </section>
@@ -79,5 +84,3 @@ const Page = async () => {
     </div>
   )
 }
-
-export default Page

@@ -29,11 +29,14 @@ export const RscComponent = async ({ id }: { id: number }) => {
   logger.info(egg, 'getEggById done')
 
   return (
-    <div className="space-x-4">
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+    <div className="space-y-2 rounded border bg-white p-4 shadow">
+      <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
         Egg group: {id} info
       </h3>
-      <p className="leading-7">{egg.name}</p>
+      <p className="leading-7 font-medium text-gray-700">{egg.name}</p>
+      <p className="text-sm text-gray-500">
+        Main series: {egg.is_main_series ? 'Yes' : 'No'}
+      </p>
     </div>
   )
 }

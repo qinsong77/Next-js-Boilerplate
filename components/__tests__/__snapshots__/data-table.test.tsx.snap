@@ -6,7 +6,8 @@ exports[`[component]-DataTable > renders correctly 1`] = `
     class="grid"
   >
     <div
-      class="relative overflow-hidden border-b"
+      class="relative border-b, grid w-full"
+      data-slot="scroll-area"
       dir="ltr"
       style="position: relative; --radix-scroll-area-corner-width: 0px; --radix-scroll-area-corner-height: 0px;"
     >

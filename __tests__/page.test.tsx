@@ -1,5 +1,5 @@
 // import { describe, expect, it } from 'vitest'
-import Page from '../app/page'
+import Page from '../app/(app)/(root)/page'
 import { render, screen, userEvent } from './react-test-utils'
 
 describe('Home component', () => {
@@ -27,6 +27,7 @@ describe('Home component', () => {
     const learnLink = screen.getByRole('link', { name: /Learn/i })
 
     expect(learnLink).toBeInTheDocument()
+    // eslint-disable-next-line testing-library/no-node-access
     user.click(learnLink)
   })
 })

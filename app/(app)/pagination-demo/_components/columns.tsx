@@ -1,6 +1,6 @@
 'use client'
 
-import { Task } from '@/app/pagination-demo/_data/schema'
+import { Task } from '@/app/(app)/pagination-demo/_data/schema'
 import { ColumnDef } from '@tanstack/react-table'
 
 import { Badge } from '@/components/ui/badge'

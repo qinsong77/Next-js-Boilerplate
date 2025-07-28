@@ -35,8 +35,8 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 
 ## Demos
 
-- [loading and streaming UI](./app/loading-and-streaming)
-- [table pagination](./app/pagination-demo) RSC + RCC, RCC will update the data
+- [loading and streaming UI](<app/(app)/loading-and-streaming>)
+- [table pagination](<app/(app)/pagination-demo>) RSC + RCC, RCC will update the data
 
 ## TODO
 
@@ -47,7 +47,7 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 - how to update rsc in client?
   ~~- Update to Next.js 15~~
 - How to test, the test strategy/architecture with RSC
-- in [table pagination demo](./app/pagination-demo/page.tsx), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
+- in [table pagination demo](<app/(app)/pagination-demo/page.tsx>), Suspense fallback will cover table pagination and header when paginate on client, how to show them when request on client
   - Fixed by using [useTransition](https://19.react.dev/reference/react/useTransition), refer: [Preventing unwanted loading indicators ](https://19.react.dev/reference/react/useTransition#preventing-unwanted-loading-indicators)
 - ~~Remove `"react-is": "19.0.0-rc-1631855f-20241023"` in `package.json` for support React 19~~
 - ~~eslint v9~~

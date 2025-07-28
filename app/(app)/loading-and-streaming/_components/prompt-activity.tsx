@@ -31,12 +31,22 @@ async function getRandomJoke(): Promise<Joke> {
 export const PromptActivity = async () => {
   const data = await getRandomJoke()
   return (
-    <div>
-      <h2>Random Joke: </h2>
-      <p className="break-words">url: {data.url}</p>
-      <p>updated_at: {data.updated_at}</p>
-      <p>{data.value}</p>
-      <div>
+    <div className="space-y-3 rounded border bg-white p-4 shadow">
+      <h2 className="mb-2 text-lg font-semibold">Random Joke</h2>
+      <div className="text-sm break-words text-gray-500">
+        URL:{' '}
+        <a
+          href={data.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          {data.url}
+        </a>
+      </div>
+      <div className="text-xs text-gray-400">Updated: {data.updated_at}</div>
+      <p className="mt-2 text-base">{data.value}</p>
+      <div className="mt-4">
         <ClientButton />
       </div>
     </div>
