@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "plugins": [
@@ -32,12 +32,13 @@
   },
   "include": [
     "next-env.d.ts",
-    "environment.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts",
     "__tests__/setup.ts",
-    "dist/types/**/*.ts"
+    "environment.d.ts"
   ],
   "exclude": ["node_modules"]
 }

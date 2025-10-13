@@ -38,6 +38,7 @@ next-env.d.ts
 
 # IDE
 .idea
+.vscode
 
 /e2e-results/
 /playwright-report/

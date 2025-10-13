@@ -45,6 +45,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
+        suppressHydrationWarning
         className={cn('bg-background font-sans antialiased', fontSans.variable)}
       >
         <Providers>{children}</Providers>

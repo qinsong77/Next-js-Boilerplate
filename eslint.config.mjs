@@ -1,13 +1,10 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-
+import { FlatCompat } from '@eslint/eslintrc'
+import js from '@eslint/js'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import tailwind from 'eslint-plugin-tailwindcss'
-
-import js from '@eslint/js'
-
+import { defineConfig, globalIgnores } from 'eslint/config'
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { FlatCompat } from '@eslint/eslintrc'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -22,9 +19,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = defineConfig([
   {
-    plugins: {
-      // 'simple-import-sort': simpleImportSort, // import simpleImportSort from "eslint-plugin-simple-import-sort";
-    },
+    plugins: {},
 
     extends: compat.extends('next', 'next/typescript'),
 
@@ -52,7 +47,12 @@ const eslintConfig = defineConfig([
     '**/node_modules/',
     '**/.next/',
     '**/public/',
+    '**/turbo/',
+    '**/coverage/',
+    '**/e2e-results/',
+    '**/playwright-report/',
     'components/ui',
+    '.cursor',
   ]),
 ])
 

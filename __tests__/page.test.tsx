@@ -2,6 +2,15 @@
 import Page from '../app/(app)/(root)/page'
 import { render, screen, userEvent } from './react-test-utils'
 
+vi.mock('@/components/text-splitter', () => {
+  return {
+    TextSplitter: vi.fn((props) => {
+      console.log('Mocked TextSplitter rendered with props:', props)
+      return <div data-testid="MockTextSplitter">Mocked Splitter</div>
+    }),
+  }
+})
+
 describe('Home component', () => {
   it('renders correctly', () => {
     render(<Page />)
@@ -21,13 +30,12 @@ describe('Home component', () => {
     expect(nextLogo).toHaveAttribute('height', '24')
   })
 
-  it('handles click events', () => {
+  it('handles click events', async () => {
     const user = userEvent.setup()
     render(<Page />)
     const learnLink = screen.getByRole('link', { name: /Learn/i })
 
     expect(learnLink).toBeInTheDocument()
-    // eslint-disable-next-line testing-library/no-node-access
-    user.click(learnLink)
+    await user.click(learnLink)
   })
 })

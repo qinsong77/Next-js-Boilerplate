@@ -8,6 +8,10 @@ pnpm-lock.yaml
 .github
 .husky
 .turbo
+coverage
+e2e-results
+playwright-report
+.cursor
 
 components/ui
 *.tsbuildinfo
