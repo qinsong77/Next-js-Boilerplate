@@ -1,8 +1,6 @@
-'use client'
-
 import { TypingAnimation } from '@/components/ui/typing-animation'
 
-const orgText = 'React & Next.js 15'
+const orgText = 'React 19 & Next.js 15'
 export const TextSplitter = () => {
   return (
     <>

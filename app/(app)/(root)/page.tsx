@@ -1,170 +1,223 @@
+import {
+  ArrowRight,
+  CheckSquare,
+  LayoutDashboard,
+  Table,
+  Zap,
+} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { TextSplitter } from '@/components/text-splitter'
+import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 
 import { logger } from '@/lib/shared'
 
+const demos = [
+  {
+    href: '/loading-and-streaming',
+    icon: Zap,
+    title: 'Loading & Streaming',
+    description: 'Async data loading patterns',
+  },
+  {
+    href: '/dashboard',
+    icon: LayoutDashboard,
+    title: 'Dashboard',
+    description: 'Analytics and data visualization',
+  },
+  {
+    href: '/pagination-demo',
+    icon: Table,
+    title: 'Pagination',
+    description: 'Data table with pagination',
+  },
+  {
+    href: '/task-sequence-progress',
+    icon: CheckSquare,
+    title: 'Task Sequence Progress',
+    description: 'Sequential tasks progress with RSC and Suspense',
+  },
+]
+
+const resources = [
+  {
+    href: 'https://nextjs.org/docs',
+    title: 'Docs',
+    description: 'Find in-depth information about Next.js features and API.',
+  },
+  {
+    href: 'https://nextjs.org/learn',
+    title: 'Learn',
+    description: 'Learn about Next.js in an interactive course with quizzes!',
+  },
+  {
+    href: 'https://github.com/qinsong77/Next-js-Boilerplate',
+    title: 'Templates',
+    description: 'Explore starter templates for Next.js.',
+  },
+  {
+    href: 'https://vercel.com/new',
+    title: 'Deploy',
+    description:
+      'Instantly deploy your Next.js site to a shareable URL with Vercel.',
+  },
+]
+
 export default function Home() {
   logger.trace('entering home')
   return (
-    <div className="space-y-4 md:space-y-8 lg:space-y-12">
-      <div className="flex flex-row flex-wrap justify-center">
-        <div className="relative min-h-80 w-full shrink self-center sm:w-9/12 md:w-1/2 lg:px-18">
-          <Image
-            src="/hero.svg"
-            alt="hero Logo"
-            className="h-auto w-full dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-            priority
-            fill={true}
-          />
-        </div>
-        <div className="w-full shrink self-center text-center sm:w-9/12 md:w-1/2 md:text-left">
-          <TextSplitter />
-          <div className="mt-6">
-            <h3 className="text-xl font-bold">Check the demos: </h3>
-            <div className="flex flex-row flex-wrap">
-              <Link
-                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-                href="/loading-and-streaming"
-              >
-                Loading and streaming
-              </Link>
-              <Link
-                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-                href="/dashboard"
-              >
-                dashboard
-              </Link>
-              <Link
-                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-                href="/todo"
-              >
-                Todo demo
-              </Link>
-              <Link
-                className="bg-primary text-primary-foreground ring-offset-background hover:bg-primary/90 focus-visible:ring-ring mt-4 mr-2 inline-flex h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
-                href="/demos"
-              >
-                demos
-              </Link>
-            </div>
+    <div className="container mx-auto space-y-6 px-4 py-4 md:space-y-12 md:py-6 lg:space-y-12 lg:py-8">
+      {/* Hero Section */}
+      <section className="space-y-8 md:space-y-12">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+          <div className="relative mx-auto aspect-square w-full max-w-md">
+            <Image
+              src="/hero.svg"
+              alt="Hero Logo"
+              className="transition-all duration-500 hover:scale-105 dark:drop-shadow-[0_0_0.5rem_#ffffff70] dark:invert"
+              priority
+              fill
+            />
+          </div>
+          <div className="space-y-4 text-center lg:text-left">
+            <TextSplitter />
+            <p className="text-muted-foreground text-base md:text-lg lg:text-xl">
+              A modern Next.js boilerplate with best practices and interactive
+              demos
+            </p>
           </div>
         </div>
-      </div>
-      <Separator />
-      <div className="grid grid-cols-1 justify-between gap-10 md:grid-cols-2">
-        <p className="flex max-w-96 justify-center border-b border-gray-300 bg-gray-200 bg-gradient-to-b from-zinc-200 pt-8 pb-6 backdrop-blur-2xl md:static md:w-auto md:rounded-xl md:p-4 lg:border dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit md:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="flex">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-4 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-            &
-          </a>
-          <a
-            className="pointer-events-none flex place-items-center p-4 lg:pointer-events-auto"
-            href="https://nextjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="relative ml-2 dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-              src="/next.svg"
-              alt="Next.js Logo"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+
+        {/* Demos Section */}
+        <div className="space-y-6">
+          <div className="space-y-3 text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+              Check the demos
+            </h2>
+            <p className="text-muted-foreground md:text-lg">
+              Explore interactive examples and features
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            {demos.map((demo) => {
+              const Icon = demo.icon
+              return (
+                <Link
+                  key={demo.href}
+                  href={demo.href}
+                  className="group"
+                >
+                  <Card className="hover:border-primary hover:shadow-primary/20 dark:hover:shadow-primary/10 h-full border-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+                    <CardContent className="flex h-full flex-col items-center gap-3 p-5 text-center">
+                      <div className="bg-primary/10 group-hover:bg-primary/20 dark:bg-primary/20 dark:group-hover:bg-primary/30 flex size-12 items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110">
+                        <Icon className="text-primary dark:text-primary size-6" />
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="text-sm leading-tight font-semibold">
+                          {demo.title}
+                        </h3>
+                        <p className="text-muted-foreground text-xs">
+                          {demo.description}
+                        </p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              )
+            })}
+          </div>
         </div>
-      </div>
+      </section>
+
       <Separator />
-      <div className="grid text-left md:grid-cols-2 lg:grid-cols-4">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      {/* Get Started Section */}
+      <section className="grid gap-6 md:grid-cols-2 lg:gap-8">
+        <Card className="hover:border-primary/50 border-2 transition-all duration-300 hover:shadow-lg">
+          <CardContent className="flex h-full items-center justify-center p-8 md:p-10">
+            <p className="text-center text-base md:text-lg">
+              Get started by editing{' '}
+              <code className="bg-muted text-primary rounded-md px-2.5 py-1 font-mono text-sm font-semibold">
+                app/(app)/(root)/page.tsx
+              </code>
+            </p>
+          </CardContent>
+        </Card>
+        <Card className="hover:border-primary/50 border-2 transition-all duration-300 hover:shadow-lg">
+          <CardContent className="flex h-full flex-wrap items-center justify-center gap-3 p-8 md:p-10">
+            <span className="text-muted-foreground text-base md:text-lg">
+              Built with
             </span>
-          </h2>
-          <p className={`m-0 text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all hover:scale-110 hover:opacity-80"
+            >
+              <Image
+                src="/vercel.svg"
+                alt="Vercel Logo"
+                className="dark:invert"
+                width={100}
+                height={24}
+                priority
+              />
+            </a>
+            <span className="text-muted-foreground">&</span>
+            <a
+              href="https://nextjs.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-all hover:scale-110 hover:opacity-80"
+            >
+              <Image
+                className="dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                src="/next.svg"
+                alt="Next.js Logo"
+                width={100}
+                height={24}
+                priority
+              />
+            </a>
+          </CardContent>
+        </Card>
+      </section>
 
-        <a
-          href="https://github.com/qinsong77/Next-js-Boilerplate"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 text-sm text-balance opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
       <Separator />
+
+      {/* Resources Section */}
+      <section className="space-y-8">
+        <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          Explore Resources
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          {resources.map((resource) => (
+            <Card
+              key={resource.href}
+              className="group hover:border-primary hover:shadow-primary/20 dark:hover:shadow-primary/10 overflow-hidden border-2 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+            >
+              <a
+                href={resource.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <CardContent className="space-y-3 p-6">
+                  <h3 className="flex items-center gap-2 text-xl font-semibold md:text-2xl">
+                    {resource.title}
+                    <ArrowRight className="size-5 transition-transform group-hover:translate-x-1" />
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {resource.description}
+                  </p>
+                </CardContent>
+              </a>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

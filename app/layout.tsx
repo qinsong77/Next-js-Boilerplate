@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
-import { siteConfig } from '@/config/site'
+import { META_THEME_COLORS } from '@/constants/config'
+import { siteConfig } from '@/constants/site'
 
-import { Providers } from '@/components/providers'
+import { AppProvider } from '@/components/providers'
 
 import { cn } from '@/lib/utils'
 
@@ -44,11 +45,28 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+        <meta
+          name="theme-color"
+          content={META_THEME_COLORS.light}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={cn('bg-background font-sans antialiased', fontSans.variable)}
       >
-        <Providers>{children}</Providers>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   )

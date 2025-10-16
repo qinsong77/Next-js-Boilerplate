@@ -1,15 +1,22 @@
+import { cn } from '@/lib/utils'
+
 export function ExternalLink({
   href,
   children,
+  className,
 }: {
   href: string
   children: React.ReactNode
+  className?: string
 }) {
   return (
     <a
       href={href}
       target="_blank"
-      className="inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
+      className={cn(
+        'inline-flex flex-1 justify-center gap-1 leading-4 hover:underline',
+        className,
+      )}
     >
       <span>{children}</span>
       <svg

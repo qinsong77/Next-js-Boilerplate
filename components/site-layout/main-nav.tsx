@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/constants/site'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -30,10 +30,9 @@ const navItems = [
     label: 'table pagination',
     shortLabel: 'pagination',
   },
-  { href: '/todo', label: 'Todo demo' },
   {
     href: '/task-sequence-progress',
-    label: 'Task Sequence Progress demo',
+    label: 'Task Sequence Progress',
     shortLabel: 'Sequence Progress',
   },
   { href: siteConfig.links.repoGithub, label: 'GitHub', external: true },
@@ -46,27 +45,27 @@ export function MainNav() {
     <div className="flex w-full items-center">
       <Link
         href="/"
-        className="mr-3 flex items-center"
+        className="mr-2 flex flex-shrink-0 items-center lg:mr-3"
       >
         <Image
           src="/next.svg"
           alt="Next.js Logo"
-          className="h-6 w-16 dark:invert"
+          className="h-5 w-14 lg:h-6 lg:w-16 dark:invert"
           width={100}
           height={24}
         />
-        <span className="ml-2 text-sm font-bold sm:text-base">
+        <span className="ml-1.5 text-xs font-bold sm:text-sm lg:ml-2 lg:text-base">
           15 Boilerplate
         </span>
       </Link>
 
-      <nav className="hidden items-center space-x-1 sm:flex md:space-x-2 lg:space-x-4">
+      <nav className="hidden items-center space-x-1 xl:flex xl:space-x-2">
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             className={cn(
-              'hover:text-foreground/80 text-xs transition-colors sm:text-sm',
+              'hover:text-foreground/80 text-xs whitespace-nowrap transition-colors xl:text-sm',
               pathname?.startsWith(item.href)
                 ? 'text-foreground'
                 : 'text-foreground/60',
@@ -83,7 +82,7 @@ export function MainNav() {
       <DropdownMenu modal={false}>
         <DropdownMenuTrigger
           asChild
-          className="sm:hidden"
+          className="xl:hidden"
         >
           <Button
             variant="outline"

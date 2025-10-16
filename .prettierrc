@@ -13,10 +13,11 @@
   ],
   "tailwindFunctions": ["clsx", "cn", "cva"],
   "importOrder": [
+    "^server-only$",
+    "^client-only$",
     "<THIRD_PARTY_MODULES>",
-    "^@core/(.*)$",
+    "^@/constants/(.*)$",
     "^@/feature/(.*)$",
-    "^@/config/(.*)$",
     "^@/components/(.*)$",
     "^@/hooks/(.*)$",
     "^@/lib/(.*)$",

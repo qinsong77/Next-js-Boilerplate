@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
+import { createServer } from 'node:net'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -16,6 +17,39 @@ const baseURL = `http://localhost:${PORT}`
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+
+/**
+ * Check if a port is already in use
+ */
+async function isPortInUse(port: number): Promise<boolean> {
+  return new Promise((resolve) => {
+    const server = createServer()
+    server.once('error', (err: NodeJS.ErrnoException) => {
+      if (err.code === 'EADDRINUSE') {
+        resolve(true)
+      } else {
+        resolve(false)
+      }
+    })
+    server.once('listening', () => {
+      server.close()
+      resolve(false)
+    })
+    server.listen(port)
+  })
+}
+
+const portInUse = await isPortInUse(Number(PORT))
+
+// Log the auto-detection result
+if (portInUse && !process.env.CI) {
+  console.log(
+    `✓ Detected existing dev server on port ${PORT}, will use it for testing`,
+  )
+} else if (!process.env.CI) {
+  console.log(`✓ No dev server detected on port ${PORT}, will start a new one`)
+}
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -40,12 +74,17 @@ export default defineConfig({
 
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
-  webServer: {
-    command: process.env.CI ? 'pnpm run preview' : 'pnpm run dev:turbo',
-    url: baseURL,
-    timeout: 2 * 60 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
+  // Automatically detect if a dev server is already running on the port
+  // If so, skip starting a new one; otherwise, start the server
+  webServer:
+    portInUse && !process.env.CI
+      ? undefined
+      : {
+          command: process.env.CI ? 'pnpm run preview' : 'pnpm run dev',
+          url: baseURL,
+          timeout: 2 * 60 * 1000,
+          reuseExistingServer: !process.env.CI,
+        },
   use: {
     // Use baseURL so to make navigations relative.
     // More information: https://playwright.dev/docs/api/class-testoptions#test-options-base-url

@@ -28,7 +28,7 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
   - [setting-tutorials](https://i18nexus.com/tutorials/nextjs/react-i18next)
   - [next-intl](https://github.com/amannn/next-intl) not compatible with turbo mode `Module not found: Can't resolve 'next-intl/config' `
   - [next-international](https://github.com/QuiiBz/next-international) seems better, but not compatible with Not found page
-  - Maybe the best choice is official Example: [app-dir-i18n-routing](https://github.com/vercel/next.js/tree/canary/examples/app-dir-i18n-routing)
+  - Maybe the best choice is official Example: [app-dir-i18n-routing](https://github.com/vercel/next.js/tree/canary/examples/i18n-routing)
   - [A readable, automated, and optimized internationalization for JavaScript](https://lingui.dev/introduction)
 - Docker
 - Playwright: Write end-to-end tests like a pro or cypress
@@ -45,7 +45,7 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 - i18n
 - ~~E2E test~~
 - Zustand, too simplify, maybe RTK or [xstate](https://stately.ai/docs/xstate-react) if needed
-- after gpr, run pnpm install automatically
+- After gpr, run pnpm install automatically
 - how to update rsc in client?
   ~~- Update to Next.js 15~~
 - How to test, the test strategy/architecture with RSC
@@ -77,7 +77,7 @@ For Next.js 15.1.4 + tailwindcss v3., check this: [Next.js 15.1.4 Boilerplate](h
 ### fancy components
 
 - [shadcn/ui](https://ui.shadcn.com/)
-- [MagicUI](https://www.magicui.com/)
+- [MagicUI](https://magicui.design/)
 - [fancycomponents](https://www.fancycomponents.dev/docs/introduction)
 - [reactbits](https://www.reactbits.dev/)
 

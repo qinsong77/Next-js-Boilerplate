@@ -1,21 +1,21 @@
 'use client'
 
-import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
-import { TooltipProvider } from '@/components/ui/tooltip'
 
-export function Providers({ children }: { children: React.ReactNode }) {
+import { QueryProvider } from './query-provider'
+import { ThemeProvider } from './theme-provider'
+
+type AppProviderProps = {
+  children: React.ReactNode
+}
+
+export const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <TooltipProvider>{children}</TooltipProvider>
-        <Toaster />
-      </ThemeProvider>
+      <Toaster position="top-center" />
+      <QueryProvider>
+        <ThemeProvider>{children}</ThemeProvider>
+      </QueryProvider>
     </>
   )
 }

@@ -13,21 +13,14 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": ["vitest/globals", "vitest/jsdom"],
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/styles/*": ["styles/*"],
-      "@/components/*": ["components/*"],
-      "@/config/*": ["config/*"],
-      "@/lib/*": ["lib/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/features/*": ["features/*"]
+      "@/*": ["./*"]
     }
   },
   "include": [

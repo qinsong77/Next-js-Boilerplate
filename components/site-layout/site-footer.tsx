@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/site'
+import { siteConfig } from '@/constants/site'
 
 import { cn } from '@/lib/utils'
 

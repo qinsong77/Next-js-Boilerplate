@@ -1,14 +1,14 @@
 import { expect, test } from '@playwright/test'
 
-test('should navigate to the dashboard page', async ({ page }) => {
+test('should navigate to the line chart page', async ({ page }) => {
   // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
   await page.goto('/')
-  // Find an element with the text 'About' and click on it
-  await page.click('text=dashboard')
-  // The new URL should be "/about" (baseURL is used there)
-  await expect(page).toHaveURL('/dashboard')
-  // The new page should contain an h1 with "About"
-  await expect(page.locator('h2')).toContainText('Dashboard')
+  // Find an element with the text 'line chart' and click on it
+  await page.click('text=line chart')
+  // The new URL should be "/line-chart"
+  await expect(page).toHaveURL('/line-chart')
+  // The new page should contain the chart heading
+  await expect(page.getByText('Line Chart - Interactive')).toBeVisible()
 })
 
 test('app journey', async ({ page }) => {
@@ -18,13 +18,16 @@ test('app journey', async ({ page }) => {
 
   const navLinks = page.locator('nav a')
   const expectedLinks = [
-    { text: 'streaming ui', url: '/loading-and-streaming' },
-    { text: 'dashboard', url: '/dashboard' },
-    { text: 'line chart', url: '/line-chart' },
-    { text: 'pagination', url: '/pagination-demo' },
-    { text: 'Todo demo', url: '/todo' },
-    { text: 'Sequence Progress', url: '/task-sequence-progress' },
-    { text: 'GitHub', url: 'https://github.com' },
+    { text: 'streaming ui', url: '/loading-and-streaming', protected: false },
+    { text: 'dashboard', url: '/dashboard', protected: true },
+    { text: 'line chart', url: '/line-chart', protected: false },
+    { text: 'pagination', url: '/pagination-demo', protected: false },
+    {
+      text: 'Sequence Progress',
+      url: '/task-sequence-progress',
+      protected: false,
+    },
+    { text: 'GitHub', url: 'https://github.com', protected: false },
   ] as const
 
   for (const [index, link] of expectedLinks.entries()) {
@@ -33,24 +36,18 @@ test('app journey', async ({ page }) => {
 
     if (link.text !== 'GitHub') {
       await navLink.click()
-      await expect(page).toHaveURL(link.url)
+      // If it's a protected route, expect redirect to login
+      if (link.protected) {
+        await expect(page).toHaveURL('/login')
+      } else {
+        await expect(page).toHaveURL(link.url)
+      }
       await page.goBack()
     }
   }
 
-  // 测试 Todo 页面
-  await navLinks.filter({ hasText: 'Todo demo' }).click()
-  await expect(page).toHaveURL('/todo')
-  await expect(
-    page.getByRole('heading', { name: 'Todo demo with RCC' }),
-  ).toBeVisible()
-
-  // 测试 Loading and Streaming 页面
+  // Test Loading and Streaming page
   await navLinks.filter({ hasText: 'streaming ui' }).click()
   await expect(page).toHaveURL('/loading-and-streaming')
-  await expect(
-    page.getByRole('heading', { name: 'Show loading UI and streaming' }),
-  ).toBeVisible()
-
-  // todo test submit
+  await expect(page.getByText('Loading UI & Streaming Demo')).toBeVisible()
 })

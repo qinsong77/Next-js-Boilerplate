@@ -1,3 +1,8 @@
+'use client'
+
+import { signOutAction } from '@/app/actions/auth'
+
+import { useSessionContext } from '@/components/providers/session-context'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,6 +17,19 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 export function UserNav() {
+  const { user } = useSessionContext()
+
+  const initials = user.name
+    .split(' ')
+    .map((n) => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2)
+
+  const handleSignOut = async () => {
+    await signOutAction()
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -21,10 +39,10 @@ export function UserNav() {
         >
           <Avatar className="size-8">
             <AvatarImage
-              src="/avatars/01.png"
-              alt="@shadcn"
+              src={user.avatar}
+              alt={user.name}
             />
-            <AvatarFallback>SC</AvatarFallback>
+            <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
@@ -35,9 +53,9 @@ export function UserNav() {
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm leading-none font-medium">shadcn</p>
+            <p className="text-sm leading-none font-medium">{user.name}</p>
             <p className="text-muted-foreground text-xs leading-none">
-              m@example.com
+              {user.email}
             </p>
           </div>
         </DropdownMenuLabel>
@@ -58,7 +76,7 @@ export function UserNav() {
           <DropdownMenuItem>New Team</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleSignOut}>
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>

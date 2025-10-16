@@ -14,7 +14,7 @@ import {
 
 import { logger } from '@/lib/shared'
 
-export function ThemeToggle() {
+export function ThemeSwitch() {
   const { setTheme } = useTheme()
 
   return (
