@@ -1,7 +1,8 @@
 'use client'
 
-import { signOutAction } from '@/app/actions/auth'
 import { LogOut, User } from 'lucide-react'
+
+import { signOutAction } from '@/app/actions/auth'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {

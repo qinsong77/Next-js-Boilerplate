@@ -1,9 +1,10 @@
 'use client'
 
-import refresh from '@/app/(app)/loading-and-streaming/action'
 import { Loader2, RefreshCw, RotateCw } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
+
+import refresh from '@/app/(app)/loading-and-streaming/action'
 
 import { Button } from '@/components/ui/button'
 

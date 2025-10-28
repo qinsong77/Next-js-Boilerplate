@@ -16,6 +16,7 @@
     "^server-only$",
     "^client-only$",
     "<THIRD_PARTY_MODULES>",
+    "^@/app/(.*)$",
     "^@/constants/(.*)$",
     "^@/feature/(.*)$",
     "^@/components/(.*)$",

@@ -1,12 +1,12 @@
 'use client'
 
-import { Task } from '@/app/(app)/pagination-demo/_data/schema'
 import { ColumnDef } from '@tanstack/react-table'
 
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 
 import { labels, priorities, statuses } from '../_data'
+import { Task } from '../_data/schema'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
 

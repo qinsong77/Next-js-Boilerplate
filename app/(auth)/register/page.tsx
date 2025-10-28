@@ -1,11 +1,12 @@
 'use client'
 
-import { signUpAction } from '@/app/actions/auth'
 import Form from 'next/form'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useActionState } from 'react'
 import { z } from 'zod'
+
+import { signUpAction } from '@/app/actions/auth'
 
 import { AuthSSO } from '@/components/auth-sso'
 import { Button } from '@/components/ui/button'

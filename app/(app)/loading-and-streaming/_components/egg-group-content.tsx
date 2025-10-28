@@ -1,8 +1,9 @@
 'use client'
 
-import { EggGroup } from '@/app/api/egg-groups/route'
 import { useQuery } from '@tanstack/react-query'
 import { RefreshCw } from 'lucide-react'
+
+import { EggGroup } from '@/app/api/egg-groups/route'
 
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
