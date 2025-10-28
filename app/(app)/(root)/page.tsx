@@ -66,9 +66,8 @@ const resources = [
 ]
 
 export default function Home() {
-  logger.trace('entering home')
   return (
-    <div className="container mx-auto space-y-6 px-4 py-4 md:space-y-12 md:py-6 lg:space-y-12 lg:py-8">
+    <div className="container mx-auto space-y-6 px-4 md:space-y-12 lg:space-y-12">
       {/* Hero Section */}
       <section className="space-y-8 md:space-y-12">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
@@ -93,7 +92,7 @@ export default function Home() {
         {/* Demos Section */}
         <div className="space-y-6">
           <div className="space-y-3 text-center">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            <h2 className="text-xl font-bold tracking-tight md:text-2xl lg:text-3xl">
               Check the demos
             </h2>
             <p className="text-muted-foreground md:text-lg">

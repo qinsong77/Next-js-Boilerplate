@@ -20,11 +20,11 @@ import { cn } from '@/lib/utils'
 const navItems = [
   {
     href: '/loading-and-streaming',
-    label: 'Loading and streaming',
-    shortLabel: 'streaming ui',
+    label: 'Loading & streaming',
+    shortLabel: 'streaming',
   },
   { href: '/dashboard', label: 'dashboard' },
-  { href: '/line-chart', label: 'line chart' },
+  { href: '/line-chart', label: 'chart' },
   {
     href: '/pagination-demo',
     label: 'table pagination',
@@ -32,8 +32,8 @@ const navItems = [
   },
   {
     href: '/task-sequence-progress',
-    label: 'Task Sequence Progress',
-    shortLabel: 'Sequence Progress',
+    label: 'Task Progress',
+    shortLabel: 'Progress',
   },
   { href: siteConfig.links.repoGithub, label: 'GitHub', external: true },
 ]
@@ -74,7 +74,7 @@ export function MainNav() {
               ? { target: '_blank', rel: 'noopener noreferrer' }
               : {})}
           >
-            {item.shortLabel || item.label}
+            {item.label}
           </Link>
         ))}
       </nav>

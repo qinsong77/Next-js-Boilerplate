@@ -31,7 +31,9 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "__tests__/setup.ts",
-    "environment.d.ts"
+    "environment.d.ts",
+    "dist/types/**/*.ts",
+    "dist/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

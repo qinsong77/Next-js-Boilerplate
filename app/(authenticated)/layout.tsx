@@ -1,6 +1,6 @@
 import { AuthenticatedLayout } from '@/components/authenticated-layout'
 
-export default async function ProtectedLayout({
+export default function AuthenticatedPageLayout({
   children,
 }: Readonly<{
   children: React.ReactNode

@@ -1,5 +1,6 @@
 import { GithubIcon, RssIcon, User } from 'lucide-react'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 import { siteConfig } from '@/constants/site'
 
@@ -9,12 +10,11 @@ import { getSessionCached } from '@/lib/auth'
 import { cn } from '@/lib/utils'
 
 import { ThemeSwitcherLight } from '../theme-switch-light'
+import { Skeleton } from '../ui/skeleton'
 import { MainNav } from './main-nav'
 import { UserMenu } from './user-menu'
 
-export async function SiteHeader() {
-  const { user } = await getSessionCached()
-
+export function SiteHeader() {
   return (
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex min-h-14 border-b backdrop-blur">
       <MainNav />
@@ -55,24 +55,31 @@ export async function SiteHeader() {
         </Link>
         <ThemeSwitcherLight />
 
-        {user ? (
-          <UserMenu user={user} />
-        ) : (
-          <Link
-            href="/login"
-            className={cn(
-              buttonVariants({
-                variant: 'ghost',
-                size: 'sm',
-              }),
-              'px-2 sm:px-3',
-            )}
-          >
-            <User className="mr-0.5 size-3.5 sm:size-4" />
-            <span className="text-xs sm:text-sm">Sign in</span>
-          </Link>
-        )}
+        <Suspense
+          fallback={<Skeleton className="h-6 w-10 rounded-md md:h-8 xl:w-12" />}
+        >
+          <AuthButton />
+        </Suspense>
       </nav>
     </header>
+  )
+}
+
+async function AuthButton() {
+  const { user } = await getSessionCached()
+  if (user) {
+    return <UserMenu user={user} />
+  }
+  return (
+    <Link
+      href="/login"
+      className={cn(
+        buttonVariants({ variant: 'ghost', size: 'sm' }),
+        'px-2 sm:px-3',
+      )}
+    >
+      <User className="mr-0.5 size-3.5 sm:size-4" />
+      <span className="text-xs sm:text-sm">Sign in</span>
+    </Link>
   )
 }

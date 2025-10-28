@@ -1,4 +1,5 @@
 import { Sparkles, User } from 'lucide-react'
+import { connection } from 'next/server'
 import { Suspense } from 'react'
 
 import { ExternalLink } from '@/components/site-layout/external-link'
@@ -33,6 +34,7 @@ type UserResponse = {
 }
 
 async function getUserInfo(): Promise<UserResponse> {
+  await connection()
   logger.info('Critical data: getUserInfo starting')
   const response = await fetch('https://randomuser.me/api/', {
     next: { revalidate: 0 }, // Always fetch fresh data

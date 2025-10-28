@@ -1,6 +1,7 @@
 import { TableLoading } from '@/app/(app)/pagination-demo/_components/table-loading'
 import { getTaskList } from '@/app/(app)/pagination-demo/actions'
 import { TableExample } from '@/app/(app)/pagination-demo/table-example'
+import { connection } from 'next/server'
 import { Suspense } from 'react'
 
 import { Separator } from '@/components/ui/separator'
@@ -8,9 +9,8 @@ import { Separator } from '@/components/ui/separator'
 import { HeaderFixedScrollTable } from './_components/header-fixed-scroll-table'
 import { TableDemo } from './_components/table-demo'
 
-export const dynamic = 'force-dynamic'
-
 export default async function Page() {
+  await connection()
   const getTaskListPromise = getTaskList({ pageIndex: 1, pageSize: 10 })
   return (
     <div>

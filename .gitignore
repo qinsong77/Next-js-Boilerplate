@@ -1,20 +1,24 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 .yarn/install-state.gz
 
 # testing
-/coverage
+coverage
+e2e-results
+playwright-report
+blob-report
+playwright/.cache/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
-/build
+build
 dist
 
 # misc
@@ -39,10 +43,5 @@ next-env.d.ts
 # IDE
 .idea
 .vscode
-
-/e2e-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
 
 .turbo

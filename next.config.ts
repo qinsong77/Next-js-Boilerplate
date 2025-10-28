@@ -15,6 +15,8 @@ const nextConfig: NextConfig = bundleAnalyzer({
   output: 'standalone',
   distDir: isProd ? 'dist' : '.next',
   cacheMaxMemorySize: 60 * 1024,
+  cacheComponents: true,
+  serverExternalPackages: ['pino', 'pino-pretty'],
   typescript: {
     // https://nextjs.org/docs/api-reference/next.config.js/ignoring-typescript-errors
     ignoreBuildErrors: true,

@@ -4,11 +4,11 @@ import AuthLayoutLeft from '@/components/auth-layout-left'
 
 import { getSessionCached } from '@/lib/auth'
 
-export default async function AuthLayout({
+export default async function AuthPageLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   const { session } = await getSessionCached()
   if (session) redirect('/')
   return (
