@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.19.0",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky",
