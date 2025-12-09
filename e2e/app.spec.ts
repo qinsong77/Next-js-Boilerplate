@@ -4,7 +4,7 @@ test('should navigate to the line chart page', async ({ page }) => {
   // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
   await page.goto('/')
   // Find an element with the text 'line chart' and click on it
-  await page.click('text=line chart')
+  await page.click('text=chart')
   // The new URL should be "/line-chart"
   await expect(page).toHaveURL('/line-chart')
   // The new page should contain the chart heading
@@ -18,12 +18,16 @@ test('app journey', async ({ page }) => {
 
   const navLinks = page.locator('nav a')
   const expectedLinks = [
-    { text: 'streaming ui', url: '/loading-and-streaming', protected: false },
-    { text: 'dashboard', url: '/dashboard', protected: true },
-    { text: 'line chart', url: '/line-chart', protected: false },
-    { text: 'pagination', url: '/pagination-demo', protected: false },
     {
-      text: 'Sequence Progress',
+      text: 'Loading & streaming',
+      url: '/loading-and-streaming',
+      protected: false,
+    },
+    { text: 'dashboard', url: '/dashboard', protected: true },
+    { text: 'chart', url: '/line-chart', protected: false },
+    { text: 'table pagination', url: '/pagination-demo', protected: false },
+    {
+      text: 'Task Progress',
       url: '/task-sequence-progress',
       protected: false,
     },
@@ -47,7 +51,7 @@ test('app journey', async ({ page }) => {
   }
 
   // Test Loading and Streaming page
-  await navLinks.filter({ hasText: 'streaming ui' }).click()
+  await navLinks.filter({ hasText: 'Loading & streaming' }).click()
   await expect(page).toHaveURL('/loading-and-streaming')
   await expect(page.getByText('Loading UI & Streaming Demo')).toBeVisible()
 })
