@@ -37,8 +37,10 @@ function isNumber(value: unknown): value is number {
 
 export type { ColumnDef }
 
-interface DataTableColumnHeaderProps<TData, TValue>
-  extends HTMLAttributes<HTMLDivElement> {
+interface DataTableColumnHeaderProps<
+  TData,
+  TValue,
+> extends HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>
   title: string
 }

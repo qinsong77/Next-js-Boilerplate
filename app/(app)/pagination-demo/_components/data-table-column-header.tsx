@@ -12,8 +12,10 @@ import {
 
 import { cn } from '@/lib/utils'
 
-interface DataTableColumnHeaderProperties<TData, TValue>
-  extends React.HTMLAttributes<HTMLDivElement> {
+interface DataTableColumnHeaderProperties<
+  TData,
+  TValue,
+> extends React.HTMLAttributes<HTMLDivElement> {
   column: Column<TData, TValue>
   title: string
 }
